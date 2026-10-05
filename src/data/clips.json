@@ -2,140 +2,274 @@
   {
     "id": "clip-01",
     "videoId": "5MuIMqhT8DM",
-    "start": 0,
-    "end": 30,
+    "start": 106.12,
+    "end": 123,
     "aspect": "16:9",
     "title": "Sleep Is Your Superpower | Matt Walker | TED",
     "channel": "TED",
     "subtitles": [
-      { "from": 0, "to": 0, "en": "[DO UZUPEŁNIENIA] linia dialogu po angielsku", "pl": "[DO UZUPEŁNIENIA] tłumaczenie linii" }
+      { "from": 106.12, "to": 109.54, "en": "and now to actually prepare your brain,", "pl": "a teraz, żeby właściwie przygotować mózg," },
+      { "from": 109.54, "to": 111.34, "en": "almost like a dry sponge", "pl": "prawie jak suchą gąbkę" },
+      { "from": 111.34, "to": 115.02, "en": "ready to initially soak up new information.", "pl": "gotową, by wchłaniać nowe informacje." },
+      { "from": 115.02, "to": 116.48, "en": "And without sleep,", "pl": "A bez snu" },
+      { "from": 116.48, "to": 120.32, "en": "the memory circuits of the brain essentially become waterlogged,", "pl": "obwody pamięci w mózgu w zasadzie nasiąkają wodą," },
+      { "from": 120.32, "to": 120.96, "en": "as it were,", "pl": "że tak powiem," },
+      { "from": 120.96, "to": 123, "en": "and you can't absorb new memories.", "pl": "i nie da się przyswajać nowych wspomnień." }
     ],
     "quiz": [
       {
-        "question": "[DO UZUPEŁNIENIA] pytanie do dialogu",
-        "options": ["[DO UZUPEŁNIENIA] odpowiedź A", "[DO UZUPEŁNIENIA] odpowiedź B", "[DO UZUPEŁNIENIA] odpowiedź C"],
+        "question": "Do czego autor porównuje mózg, który jest odpowiednio przygotowany do przyswajania wiedzy?",
+        "options": ["Do naładowanej baterii", "Do suchej gąbki", "Do czystej kartki papieru"],
+        "correct": 1,
+        "explanation": "Mówi „almost like a dry sponge”, czyli „prawie jak sucha gąbka”, gotowa wchłaniać („soak up”) nowe informacje."
+      },
+      {
+        "question": "Uzupełnij zdanie: „And without sleep, the memory ___ of the brain essentially become waterlogged.”",
+        "options": ["circuits", "circles", "cells"],
         "correct": 0,
-        "explanation": "[DO UZUPEŁNIENIA] krótkie wyjaśnienie po polsku"
+        "explanation": "„Memory circuits” to „obwody pamięci”. „Circles” to koła, a „cells” to komórki."
+      },
+      {
+        "question": "Prawda czy fałsz: według autora brak snu powoduje, że obwody pamięciowe w mózgu stają się „przesiąknięte wodą”, co blokuje zapamiętywanie.",
+        "options": ["Prawda", "Fałsz"],
+        "correct": 0,
+        "explanation": "„Waterlogged” znaczy „przesiąknięty wodą”. Autor dodaje: „you can't absorb new memories”."
       }
     ]
   },
   {
     "id": "clip-02",
     "videoId": "jNI0fiX4q4A",
-    "start": 0,
-    "end": 30,
+    "start": 73.94,
+    "end": 95.84,
     "aspect": "16:9",
-    "title": "[DO UZUPEŁNIENIA] tytuł (film niedostępny w YouTube oEmbed)",
-    "channel": "[DO UZUPEŁNIENIA] kanał",
+    "title": "Learn English quickly with podcast | English learning Conversation | Episode 1",
+    "channel": "[DO UZUPEŁNIENIA] kanał (film niedostępny na YouTubie)",
     "subtitles": [
-      { "from": 0, "to": 0, "en": "[DO UZUPEŁNIENIA] linia dialogu po angielsku", "pl": "[DO UZUPEŁNIENIA] tłumaczenie linii" }
+      { "from": 73.94, "to": 77.2, "en": "You know, I'm in a bit of a hurry, but here's my card.", "pl": "Wiesz, trochę się spieszę, ale oto moja wizytówka." },
+      { "from": 77.2, "to": 80.1, "en": "We should definitely meet up again and continue our discussion.", "pl": "Zdecydowanie powinniśmy się znów spotkać i dokończyć rozmowę." },
+      { "from": 80.1, "to": 83.38, "en": "Sure, you still have my contact details, right?", "pl": "Jasne, nadal masz moje dane kontaktowe, prawda?" },
+      { "from": 83.38, "to": 84.74, "en": "You know what?", "pl": "Wiesz co?" },
+      { "from": 84.74, "to": 86.3, "en": "This is really embarrassing,", "pl": "To naprawdę krępujące," },
+      { "from": 86.3, "to": 88.56, "en": "but your name has just slipped my mind.", "pl": "ale twoje imię właśnie wyleciało mi z głowy." },
+      { "from": 88.56, "to": 89.7, "en": "Can you remind me?", "pl": "Możesz mi przypomnieć?" },
+      { "from": 89.7, "to": 91.86, "en": "Sure. My name is Anna Ferris.", "pl": "Jasne. Nazywam się Anna Ferris." },
+      { "from": 91.86, "to": 94.66, "en": "Don't worry about it. It happens to me all the time.", "pl": "Nie przejmuj się. Mnie zdarza się to cały czas." },
+      { "from": 94.66, "to": 95.84, "en": "I'm terrible with names too.", "pl": "Ja też mam fatalną pamięć do imion." }
     ],
     "quiz": [
       {
-        "question": "[DO UZUPEŁNIENIA] pytanie do dialogu",
-        "options": ["[DO UZUPEŁNIENIA] odpowiedź A", "[DO UZUPEŁNIENIA] odpowiedź B", "[DO UZUPEŁNIENIA] odpowiedź C"],
+        "question": "Dlaczego Nick poprosił Annę o przypomnienie jej imienia?",
+        "options": ["Ponieważ chciał sprawdzić, czy Anna je pamięta.", "Ponieważ nazwisko nagle wyleciało mu z głowy.", "Ponieważ nigdy wcześniej go nie usłyszał."],
+        "correct": 1,
+        "explanation": "Mówi „your name has just slipped my mind”, czyli „twoje imię właśnie wyleciało mi z głowy”."
+      },
+      {
+        "question": "Uzupełnij zdanie: „Your name has just ___ my mind.”",
+        "options": ["fallen", "skipped", "slipped"],
+        "correct": 2,
+        "explanation": "Stały zwrot to „slip one's mind”. Z „fall” i „skip” takie wyrażenie nie występuje."
+      },
+      {
+        "question": "Prawda czy fałsz: wyrażenie „slipped my mind” oznacza, że ktoś o czymś zapomniał.",
+        "options": ["Prawda", "Fałsz"],
         "correct": 0,
-        "explanation": "[DO UZUPEŁNIENIA] krótkie wyjaśnienie po polsku"
+        "explanation": "„It slipped my mind” to potoczne „wyleciało mi z głowy”."
       }
     ]
   },
   {
     "id": "clip-03",
     "videoId": "nh36jE2M064",
-    "start": 0,
-    "end": 30,
+    "start": 13.82,
+    "end": 36.38,
     "aspect": "16:9",
     "title": "Learn English Vlog - My Real Morning Routine ✨",
     "channel": "Smashing English! Free and Fun English Lessons!",
     "subtitles": [
-      { "from": 0, "to": 0, "en": "[DO UZUPEŁNIENIA] linia dialogu po angielsku", "pl": "[DO UZUPEŁNIENIA] tłumaczenie linii" }
+      { "from": 13.82, "to": 15.36, "en": "So wake up.", "pl": "A więc „wake up”, czyli obudzić się." },
+      { "from": 15.36, "to": 17.84, "en": "I've just woken up.", "pl": "Właśnie się obudziłam." },
+      { "from": 17.84, "to": 21.56, "en": "But now I'm going to get up.", "pl": "Ale teraz zamierzam wstać." },
+      { "from": 21.56, "to": 24.18, "en": "So physically getting out of the bed", "pl": "Czyli fizycznie wychodzę z łóżka," },
+      { "from": 24.18, "to": 26.92, "en": "I'm going to get up.", "pl": "zamierzam wstać." },
+      { "from": 26.92, "to": 29.96, "en": "On a Sunday I try to lie in.", "pl": "W niedzielę staram się pospać dłużej." },
+      { "from": 29.96, "to": 32.46, "en": "I try to have a lie in", "pl": "Staram się zrobić sobie „lie in”," },
+      { "from": 32.46, "to": 36.38, "en": "which means to sleep later than you usually would.", "pl": "czyli spać dłużej niż zwykle." }
     ],
     "quiz": [
       {
-        "question": "[DO UZUPEŁNIENIA] pytanie do dialogu",
-        "options": ["[DO UZUPEŁNIENIA] odpowiedź A", "[DO UZUPEŁNIENIA] odpowiedź B", "[DO UZUPEŁNIENIA] odpowiedź C"],
+        "question": "Co według autorki nagrania oznacza wyrażenie „to lie in”?",
+        "options": ["Kłaść się spać wcześniej niż zwykle", "Spać dłużej niż zazwyczaj", "Drzemać w ciągu dnia"],
+        "correct": 1,
+        "explanation": "Autorka tłumaczy: „to sleep later than you usually would”, czyli spać dłużej niż zwykle."
+      },
+      {
+        "question": "Uzupełnij zdanie: „Physically getting ___ of the bed I'm going to get up.”",
+        "options": ["from", "out", "off"],
+        "correct": 1,
+        "explanation": "Mówimy „get out of bed”, czyli „wyjść z łóżka”. Po „out” stoi „of”."
+      },
+      {
+        "question": "Prawda czy fałsz: autorka wyjaśnia, że „get up” oznacza fizyczne wyjście z łóżka.",
+        "options": ["Prawda", "Fałsz"],
         "correct": 0,
-        "explanation": "[DO UZUPEŁNIENIA] krótkie wyjaśnienie po polsku"
+        "explanation": "„Wake up” to obudzić się, a „get up” to wstać: „physically getting out of the bed”."
       }
     ]
   },
   {
     "id": "clip-04",
     "videoId": "ocGJWc2F1Yk",
-    "start": 0,
-    "end": 30,
+    "start": 351.08,
+    "end": 367.08,
     "aspect": "16:9",
     "title": "Anne Hathaway Forgets The Princess Diaries and The Devil Wears Prada Details, Chats The Idea of You",
     "channel": "The Tonight Show Starring Jimmy Fallon",
     "subtitles": [
-      { "from": 0, "to": 0, "en": "[DO UZUPEŁNIENIA] linia dialogu po angielsku", "pl": "[DO UZUPEŁNIENIA] tłumaczenie linii" }
+      { "from": 351.08, "to": 353.28, "en": "And I get off stage, and I'm just like, well.", "pl": "Schodzę ze sceny i myślę sobie: no cóż." },
+      { "from": 353.28, "to": 357.4, "en": "And they go, did you see the raccoons?", "pl": "A oni na to: widziałaś szopy?" },
+      { "from": 357.4, "to": 359.84, "en": "And I'm like, what?", "pl": "A ja: co?" },
+      { "from": 359.84, "to": 361.4, "en": "And then they just go behind you.", "pl": "A oni: za tobą." },
+      { "from": 361.4, "to": 362.86, "en": "As soon as you came on stage,", "pl": "Gdy tylko weszłaś na scenę," },
+      { "from": 362.86, "to": 365.66, "en": "a family of raccoons came out.", "pl": "wyszła rodzina szopów." },
+      { "from": 365.66, "to": 367.08, "en": "They were so cute.", "pl": "Były takie urocze." }
     ],
     "quiz": [
       {
-        "question": "[DO UZUPEŁNIENIA] pytanie do dialogu",
-        "options": ["[DO UZUPEŁNIENIA] odpowiedź A", "[DO UZUPEŁNIENIA] odpowiedź B", "[DO UZUPEŁNIENIA] odpowiedź C"],
+        "question": "O co zapytali aktorkę współpracownicy, gdy tylko zeszła ze sceny?",
+        "options": ["Czy widziała rodzinę szopów?", "Czy słyszała śmiech widowni?", "Czy chce wrócić na scenę na bis?"],
         "correct": 0,
-        "explanation": "[DO UZUPEŁNIENIA] krótkie wyjaśnienie po polsku"
+        "explanation": "Pytają: „did you see the raccoons?”. „Raccoon” to szop."
+      },
+      {
+        "question": "Uzupełnij zdanie: „As soon as you ___ on stage, a family of raccoons came out.”",
+        "options": ["went", "came", "saw"],
+        "correct": 1,
+        "explanation": "W nagraniu pada „came on stage”. „As soon as” znaczy „gdy tylko”."
+      },
+      {
+        "question": "Prawda czy fałsz: aktorka zauważyła szopy w tym samym momencie, w którym pojawiły się na scenie.",
+        "options": ["Prawda", "Fałsz"],
+        "correct": 1,
+        "explanation": "Szopy wyszły za jej plecami („behind you”). Dowiedziała się o nich dopiero po zejściu ze sceny."
       }
     ]
   },
   {
     "id": "clip-05",
     "videoId": "OjUg1LwjZCU",
-    "start": 0,
-    "end": 30,
+    "start": 19.34,
+    "end": 44.64,
     "aspect": "16:9",
     "title": "Angry Student YELLS at Myron Gaines During Immigration Debate",
     "channel": "Uncensored America Clips",
     "subtitles": [
-      { "from": 0, "to": 0, "en": "[DO UZUPEŁNIENIA] linia dialogu po angielsku", "pl": "[DO UZUPEŁNIENIA] tłumaczenie linii" }
+      { "from": 19.34, "to": 21.7, "en": "Some of them have a percentage.", "pl": "Część z nich, jakiś procent." },
+      { "from": 21.7, "to": 23.34, "en": "What's the percentage of criminal convictions?", "pl": "Jaki jest odsetek wyroków karnych?" },
+      { "from": 23.34, "to": 25.16, "en": "Some of them are criminal aliens, some of them are not.", "pl": "Niektórzy z nich to cudzoziemcy z przeszłością kryminalną, inni nie." },
+      { "from": 25.16, "to": 27, "en": "What does the number? Do you know the number?", "pl": "Jaka to liczba? Znasz tę liczbę?" },
+      { "from": 27, "to": 28.04, "en": "I don't know the exact percentage.", "pl": "Nie znam dokładnego odsetka." },
+      { "from": 28.04, "to": 30.48, "en": "Seventy percent of them have no criminal convictions.", "pl": "Siedemdziesiąt procent z nich nie ma wyroków karnych." },
+      { "from": 30.48, "to": 31.34, "en": "OK. OK,", "pl": "OK. OK," },
+      { "from": 31.34, "to": 36.56, "en": "so do you think that's a number that we need to really be clapping for ICE?", "pl": "więc uważasz, że to liczba, za którą naprawdę mamy bić ICE brawo?" },
+      { "from": 36.56, "to": 39.74, "en": "Do you know that ICE actually shortened their training", "pl": "Wiesz, że ICE skróciło swoje szkolenie" },
+      { "from": 39.74, "to": 44.64, "en": "from 22 weeks to, wait, what, eight weeks?", "pl": "z 22 tygodni do, zaraz, ilu, ośmiu tygodni?" }
     ],
     "quiz": [
       {
-        "question": "[DO UZUPEŁNIENIA] pytanie do dialogu",
-        "options": ["[DO UZUPEŁNIENIA] odpowiedź A", "[DO UZUPEŁNIENIA] odpowiedź B", "[DO UZUPEŁNIENIA] odpowiedź C"],
+        "question": "Jaki fakt dotyczący osób zatrzymanych przez ICE zostaje przytoczony w nagraniu?",
+        "options": ["Większość z nich to osoby z niebezpieczną przeszłością kryminalną.", "Siedemdziesiąt procent zatrzymanych nie posiada wyroków karnych.", "Wszyscy zatrzymani przechodzą przez system federalny."],
+        "correct": 1,
+        "explanation": "Pada zdanie: „Seventy percent of them have no criminal convictions”."
+      },
+      {
+        "question": "Uzupełnij zdanie: „Seventy percent of them have no criminal ___.”",
+        "options": ["convictions", "records", "crimes"],
         "correct": 0,
-        "explanation": "[DO UZUPEŁNIENIA] krótkie wyjaśnienie po polsku"
+        "explanation": "„Criminal conviction” to „wyrok karny”, czyli skazanie przez sąd."
+      },
+      {
+        "question": "Prawda czy fałsz: rozmówca twierdzi, że czas szkolenia agentów ICE został skrócony z 22 tygodni do 8 tygodni.",
+        "options": ["Prawda", "Fałsz"],
+        "correct": 0,
+        "explanation": "Mówi: „shortened their training from 22 weeks to (...) eight weeks”. „Shorten” znaczy „skrócić”."
       }
     ]
   },
   {
     "id": "clip-06",
     "videoId": "Rip8bVwkyXE",
-    "start": 0,
-    "end": 30,
+    "start": 92.78,
+    "end": 112.82,
     "aspect": "16:9",
     "title": "Reese's recipe debate heats up",
     "channel": "Good Morning America",
     "subtitles": [
-      { "from": 0, "to": 0, "en": "[DO UZUPEŁNIENIA] linia dialogu po angielsku", "pl": "[DO UZUPEŁNIENIA] tłumaczenie linii" }
+      { "from": 92.78, "to": 94.6, "en": "Brad says that's not enough.", "pl": "Brad mówi, że to za mało." },
+      { "from": 94.6, "to": 98.04, "en": "What my grandfather did, I have much respect for him.", "pl": "To, co zrobił mój dziadek... mam dla niego wielki szacunek." },
+      { "from": 98.04, "to": 99.7, "en": "This is a mission that I feel", "pl": "To misja, przy której czuję," },
+      { "from": 99.7, "to": 102.62, "en": "it's almost like I prepared my whole life for it.", "pl": "jakbym przygotowywał się do niej całe życie." },
+      { "from": 102.62, "to": 104.8, "en": "You don't mess with Reese's.", "pl": "Z Reese's się nie zadziera." },
+      { "from": 104.8, "to": 108.1, "en": "So Brad says he has no issue with the employees at Hershey's.", "pl": "Brad mówi więc, że nie ma zastrzeżeń do pracowników Hershey's." },
+      { "from": 108.1, "to": 109.6, "en": "He says this is about company leadership", "pl": "Mówi, że chodzi o kierownictwo firmy" },
+      { "from": 109.6, "to": 112.82, "en": "and he hopes that the board at Hershey's will make some tough decisions.", "pl": "i ma nadzieję, że zarząd Hershey's podejmie trudne decyzje." }
     ],
     "quiz": [
       {
-        "question": "[DO UZUPEŁNIENIA] pytanie do dialogu",
-        "options": ["[DO UZUPEŁNIENIA] odpowiedź A", "[DO UZUPEŁNIENIA] odpowiedź B", "[DO UZUPEŁNIENIA] odpowiedź C"],
+        "question": "Czego domaga się Brad w kontekście firmy Hershey's?",
+        "options": ["Zwolnienia wszystkich pracowników produkcyjnych.", "Podjęcia trudnych decyzji przez zarząd w celu powrotu do tradycji.", "Wypłacenia mu odszkodowania za wykorzystanie nazwiska."],
+        "correct": 1,
+        "explanation": "Brad liczy, że „the board at Hershey's will make some tough decisions”, czyli że zarząd podejmie trudne decyzje."
+      },
+      {
+        "question": "Uzupełnij zdanie: „This is a ___ that I feel it's almost like I prepared my whole life for it.”",
+        "options": ["mission", "problem", "recipe"],
         "correct": 0,
-        "explanation": "[DO UZUPEŁNIENIA] krótkie wyjaśnienie po polsku"
+        "explanation": "Brad nazywa swoje działania misją („mission”), do której przygotowywał się całe życie."
+      },
+      {
+        "question": "Prawda czy fałsz: Brad twierdzi, że jego głównym problemem są pracownicy zatrudnieni w fabrykach Hershey's.",
+        "options": ["Prawda", "Fałsz"],
+        "correct": 1,
+        "explanation": "Jest odwrotnie: „he has no issue with the employees”. Chodzi mu o kierownictwo firmy („company leadership”)."
       }
     ]
   },
   {
     "id": "clip-07",
     "videoId": "tv2nyeQdCl8",
-    "start": 0,
-    "end": 30,
+    "start": 536,
+    "end": 556.5,
     "aspect": "16:9",
     "title": "Dakota Johnson Talks Billie Eilish Prank and Pedro Pascal Stealing Her Clothes, Plays Fast Forward",
     "channel": "The Tonight Show Starring Jimmy Fallon",
     "subtitles": [
-      { "from": 0, "to": 0, "en": "[DO UZUPEŁNIENIA] linia dialogu po angielsku", "pl": "[DO UZUPEŁNIENIA] tłumaczenie linii" }
+      { "from": 536, "to": 538.88, "en": "Materialist is about a matchmaker in New York City", "pl": "„Materialist” opowiada o swatce z Nowego Jorku," },
+      { "from": 538.88, "to": 541.52, "en": "who is very, very good at her job,", "pl": "która jest bardzo, bardzo dobra w swojej pracy," },
+      { "from": 541.52, "to": 545.68, "en": "and she is also sort of trying to figure out for herself", "pl": "a przy tym próbuje sama dla siebie zrozumieć," },
+      { "from": 545.68, "to": 547.8, "en": "what love means", "pl": "czym jest miłość" },
+      { "from": 547.8, "to": 551.4, "en": "and what is really actually valuable in life.", "pl": "i co w życiu jest naprawdę wartościowe." },
+      { "from": 551.4, "to": 554.38, "en": "And how does Pedro and Chris Evans...", "pl": "A jak do tego mają się Pedro i Chris Evans..." },
+      { "from": 554.38, "to": 556.5, "en": "Oh, it's sort of a bit of a love triangle.", "pl": "Och, to taki trochę trójkąt miłosny." }
     ],
     "quiz": [
       {
-        "question": "[DO UZUPEŁNIENIA] pytanie do dialogu",
-        "options": ["[DO UZUPEŁNIENIA] odpowiedź A", "[DO UZUPEŁNIENIA] odpowiedź B", "[DO UZUPEŁNIENIA] odpowiedź C"],
+        "question": "Kim z zawodu jest główna bohaterka filmu?",
+        "options": ["Jest agentką nieruchomości", "Jest profesjonalną swatką (matchmaker)", "Jest nauczycielką w Nowym Jorku"],
+        "correct": 1,
+        "explanation": "„A matchmaker in New York City”. „Matchmaker” to swatka, osoba kojarząca pary."
+      },
+      {
+        "question": "Uzupełnij zdanie: „She is also sort of trying to ___ out for herself what love means.”",
+        "options": ["look", "figure", "take"],
+        "correct": 1,
+        "explanation": "„Figure out” znaczy „zrozumieć, dojść do czegoś”. „Look out” to „uważać”, a „take out” to „wyjąć”."
+      },
+      {
+        "question": "Prawda czy fałsz: główna bohaterka filmu próbuje zrozumieć, co tak naprawdę jest w życiu wartościowe.",
+        "options": ["Prawda", "Fałsz"],
         "correct": 0,
-        "explanation": "[DO UZUPEŁNIENIA] krótkie wyjaśnienie po polsku"
+        "explanation": "Tak: „what is really actually valuable in life”. „Valuable” znaczy „wartościowy”."
       }
     ]
   }

@@ -1,7 +1,7 @@
 import type { Clip } from '../types/Clip';
 
 export function buildWatchUrl(clip: Clip): string {
-  return `https://www.youtube.com/watch?v=${clip.videoId}&t=${clip.start}s`;
+  return `https://www.youtube.com/watch?v=${clip.videoId}&t=${Math.floor(clip.start)}s`;
 }
 
 export function buildThumbnailUrl(clip: Clip): string {

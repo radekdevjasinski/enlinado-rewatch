@@ -54,7 +54,9 @@ Przed dodaniem sprawdź, czy film da się osadzić: otwórz `https://www.youtube
 
 ### Pola do uzupełnienia
 
-Wpisy startowe mają teksty oznaczone `[DO UZUPEŁNIENIA]` (napisy, tłumaczenia, pytania), a `start`/`end` ustawione tymczasowo na 0–30 s. Wyszukaj ten znacznik w `clips.json` i podmień na właściwą treść.
+Brakujące dane są oznaczone w `clips.json` tekstem `[DO UZUPEŁNIENIA]`. Obecnie dotyczy to nazwy kanału w `clip-02`: film `jNI0fiX4q4A` nie jest już dostępny na YouTubie, więc karta pokazuje komunikat błędu zamiast odtwarzacza.
+
+`start` i `end` mogą być ułamkowe (np. `106.12`). Odtwarzacz YouTube przyjmuje tylko pełne sekundy, więc film startuje od sekundy zaokrąglonej w dół, a dokładny koniec fragmentu pilnuje aplikacja.
 
 ## Wdrożenie
 

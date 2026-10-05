@@ -17,8 +17,8 @@ export function createClipPlayer(
     width: '100%',
     height: '100%',
     playerVars: {
-      start: clip.start,
-      end: clip.end,
+      start: Math.floor(clip.start),
+      end: Math.ceil(clip.end),
       playsinline: 1,
       origin: window.location.origin,
       rel: 0,
