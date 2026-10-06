@@ -456,6 +456,7 @@ dd {
   border-radius: 24px 24px 0 0;
   background: var(--color-surface);
   box-shadow: 0 -10px 30px rgba(0, 38, 63, 0.25);
+  z-index: 1;
   transform: translateY(calc(100% - var(--sheet-peek-height)));
   transition: transform 0.38s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
@@ -907,7 +908,8 @@ dd {
   }
 
   .quiz-sheet {
-    position: static;
+    position: relative;
+    z-index: 1;
     display: none;
     box-shadow: none;
     transform: none;
