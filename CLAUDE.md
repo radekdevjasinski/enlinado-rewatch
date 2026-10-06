@@ -39,6 +39,8 @@ How the pieces fit:
 - `Feed` renders every clip as a `ClipCard` inside a scroll-snap container. `useActiveClipIndex` (IntersectionObserver) decides which card is active.
 - Only the active card mounts `ActiveClip`, which owns the YouTube player. Other cards show a thumbnail. Leaving a card unmounts the player, which stops playback.
 - `useYouTubePlayer` creates the player, maps its events to a `PlayerStatus`, and stops playback at `clip.end`. `useCurrentTime` polls `getCurrentTime()` every 200 ms while playing.
+- `ActiveClip` walks each clip through three phases (`ClipPhase`): `listening` (no subtitles, `ListeningPrompt` instead of the transcript), `reading` (subtitles and transcript) and `quiz`. The end of the fragment in `listening` replays it in `reading`; the end in `reading` opens the quiz. `PhaseStepper` lets the user jump to any phase.
+- `.clip-side` wraps the stepper, `ClipStudy`/`ListeningPrompt` and `QuizSheet`. On phones it is `display: contents`, so the sheet still positions against `.clip-body`; from 1024px it is the right-hand grid column with the stepper above the panel. `ClipNavigation` sits in a third grid column on desktop.
 - `ClipStudy` (phrase, transcript, quiz button) and `QuizSheet` (quiz and summary) sit below the player. On phones the sheet slides up from the bottom; from 1024px they share the right-hand grid column.
 - `useScore` keeps the set of correctly answered questions in `localStorage` under `enlinadotok.correctAnswers`, keyed as `<clipId>:<questionIndex>`.
 
@@ -52,7 +54,7 @@ These come from the YouTube embed rules and the original brief. Do not trade the
 - Keep `playsinline=1` and the `origin` parameter. Never add `noreferrer` to the player or its page; YouTube needs the Referer header. Links to the original use `rel="noopener"` only.
 - Do not assume autoplay with sound works. The first clip starts on a tap; later clips try to start on their own and fall back to the visible play button.
 - Embed errors (codes 100, 101, 150) show a message with a link to the original, and the feed keeps working.
-- Each card shows the video title, the channel name and a link to the original opened at `start`.
+- Each card shows the channel name and a link to the original opened at `start`. Inactive cards also show the video title; the active card leaves it to the YouTube player, which displays it itself (Radek's decision, 2026-10-06).
 - Do not invent what is said in a recording. If content is missing, leave a field marked `[DO UZUPEŁNIENIA]`.
 
 ## Clip data
@@ -82,6 +84,8 @@ The look follows the "Enlinadotok v2" project on claude.ai/design (project id `c
 - After `seekTo`, the polled time can briefly still be the old value. `hasEnteredFragmentRef` in `useYouTubePlayer` prevents that stale value from ending the fragment immediately. Reset it whenever you seek.
 - `useYouTubePlayer` reads `shouldAutoplay` once through a ref on purpose. Putting it in the effect dependencies would recreate the player when the first clip starts.
 - The player is mounted into a div created imperatively inside the host element, so React StrictMode's double effect does not fight the iframe that YouTube swaps in.
+- `disablePlayerCaptions` calls the undocumented `unloadModule('captions')` every time playback starts, so YouTube's own captions do not spoil the `listening` phase. It is not part of the official IFrame API and may stop working without notice.
+- `FragmentSlider` seeks through `seekTo`, which resets `hasEnteredFragmentRef`. A seek to exactly `clip.end` would therefore never end the fragment, so `ActiveClip` routes that case to `finish()` instead.
 - Git on this machine converts line endings to CRLF. Scripts that parse project files should split on `/\r?\n/`.
 
 ## Deployment

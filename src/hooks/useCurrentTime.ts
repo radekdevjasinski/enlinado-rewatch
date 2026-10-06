@@ -1,8 +1,11 @@
-import { useEffect, useState, type RefObject } from 'react';
+import { useEffect, useState, type Dispatch, type RefObject, type SetStateAction } from 'react';
 
 const POLL_INTERVAL_MS = 200;
 
-export function useCurrentTime(playerRef: RefObject<YT.Player | null>, isPolling: boolean): number {
+export function useCurrentTime(
+  playerRef: RefObject<YT.Player | null>,
+  isPolling: boolean,
+): [number, Dispatch<SetStateAction<number>>] {
   const [currentTime, setCurrentTime] = useState(0);
 
   useEffect(() => {
@@ -14,5 +17,5 @@ export function useCurrentTime(playerRef: RefObject<YT.Player | null>, isPolling
     return () => window.clearInterval(intervalId);
   }, [isPolling, playerRef]);
 
-  return currentTime;
+  return [currentTime, setCurrentTime];
 }

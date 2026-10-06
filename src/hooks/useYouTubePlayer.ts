@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import type { Clip } from '../types/Clip';
 import type { PlayerStatus } from '../types/PlayerStatus';
 import { createClipPlayer } from '../youtube/createClipPlayer';
+import { disablePlayerCaptions } from '../youtube/disablePlayerCaptions';
 import { loadYouTubeApi } from '../youtube/loadYouTubeApi';
 import { useCurrentTime } from './useCurrentTime';
 
@@ -19,7 +20,7 @@ export function useYouTubePlayer(clip: Clip, shouldAutoplay: boolean) {
   const hasEnteredFragmentRef = useRef(false);
   const [status, setStatus] = useState<PlayerStatus>('loading');
   const [errorCode, setErrorCode] = useState<number | null>(null);
-  const currentTime = useCurrentTime(playerRef, status === 'playing');
+  const [currentTime, setCurrentTime] = useCurrentTime(playerRef, status === 'playing');
 
   useEffect(() => {
     const host = hostRef.current;
@@ -33,8 +34,10 @@ export function useYouTubePlayer(clip: Clip, shouldAutoplay: boolean) {
         setStatus((previous) => (previous === 'loading' ? 'ready' : previous));
         if (shouldAutoplayRef.current) playerRef.current?.playVideo();
       },
-      onStateChange: (playerState: YT.PlayerState) =>
-        setStatus((previous) => resolveStatus(previous, playerState)),
+      onStateChange: (playerState: YT.PlayerState) => {
+        if (playerState === YT.PlayerState.PLAYING && playerRef.current) disablePlayerCaptions(playerRef.current);
+        setStatus((previous) => resolveStatus(previous, playerState));
+      },
       onError: (code: number) => {
         setErrorCode(code);
         setStatus('error');
@@ -69,13 +72,23 @@ export function useYouTubePlayer(clip: Clip, shouldAutoplay: boolean) {
   const play = useCallback(() => playerRef.current?.playVideo(), []);
   const pause = useCallback(() => playerRef.current?.pauseVideo(), []);
 
-  const seekTo = useCallback((seconds: number) => {
-    hasEnteredFragmentRef.current = false;
-    playerRef.current?.seekTo(seconds, true);
-    playerRef.current?.playVideo();
-  }, []);
+  const seekTo = useCallback(
+    (seconds: number) => {
+      hasEnteredFragmentRef.current = false;
+      setCurrentTime(seconds);
+      playerRef.current?.seekTo(seconds, true);
+      playerRef.current?.playVideo();
+    },
+    [setCurrentTime],
+  );
+
+  const finish = useCallback(() => {
+    playerRef.current?.pauseVideo();
+    setCurrentTime(clip.end);
+    setStatus('ended');
+  }, [clip.end, setCurrentTime]);
 
   const replay = useCallback(() => seekTo(clip.start), [clip.start, seekTo]);
 
-  return { hostRef, status, errorCode, currentTime, play, pause, seekTo, replay };
+  return { hostRef, status, errorCode, currentTime, play, pause, seekTo, replay, finish };
 }
