@@ -7,6 +7,13 @@
     "aspect": "16:9",
     "title": "Sleep Is Your Superpower | Matt Walker | TED",
     "channel": "TED",
+    "phrases": [
+      { "en": "soak up", "pl": "wchłaniać" },
+      { "en": "dry sponge", "pl": "sucha gąbka" },
+      { "en": "waterlogged", "pl": "przesiąknięty wodą" },
+      { "en": "as it were", "pl": "że tak powiem" },
+      { "en": "absorb", "pl": "przyswajać" }
+    ],
     "subtitles": [
       { "from": 106.12, "to": 109.54, "en": "and now to actually prepare your brain,", "pl": "a teraz, żeby właściwie przygotować mózg," },
       { "from": 109.54, "to": 111.34, "en": "almost like a dry sponge", "pl": "prawie jak suchą gąbkę" },
@@ -45,6 +52,13 @@
     "aspect": "16:9",
     "title": "Learn English quickly with podcast | English learning Conversation | Episode 1",
     "channel": "[DO UZUPEŁNIENIA] kanał (film niedostępny na YouTubie)",
+    "phrases": [
+      { "en": "slipped my mind", "pl": "wyleciało mi z głowy" },
+      { "en": "in a bit of a hurry", "pl": "trochę się spieszyć" },
+      { "en": "meet up", "pl": "spotkać się" },
+      { "en": "embarrassing", "pl": "krępujące" },
+      { "en": "terrible with names", "pl": "fatalna pamięć do imion" }
+    ],
     "subtitles": [
       { "from": 73.94, "to": 77.2, "en": "You know, I'm in a bit of a hurry, but here's my card.", "pl": "Wiesz, trochę się spieszę, ale oto moja wizytówka." },
       { "from": 77.2, "to": 80.1, "en": "We should definitely meet up again and continue our discussion.", "pl": "Zdecydowanie powinniśmy się znów spotkać i dokończyć rozmowę." },
@@ -86,6 +100,12 @@
     "aspect": "16:9",
     "title": "Learn English Vlog - My Real Morning Routine ✨",
     "channel": "Smashing English! Free and Fun English Lessons!",
+    "phrases": [
+      { "en": "lie in", "pl": "pospać dłużej" },
+      { "en": "wake up", "pl": "obudzić się" },
+      { "en": "woken up", "pl": "obudzony (forma od „wake up”)" },
+      { "en": "get up", "pl": "wstać" }
+    ],
     "subtitles": [
       { "from": 13.82, "to": 15.36, "en": "So wake up.", "pl": "A więc „wake up”, czyli obudzić się." },
       { "from": 15.36, "to": 17.84, "en": "I've just woken up.", "pl": "Właśnie się obudziłam." },
@@ -125,6 +145,13 @@
     "aspect": "16:9",
     "title": "Anne Hathaway Forgets The Princess Diaries and The Devil Wears Prada Details, Chats The Idea of You",
     "channel": "The Tonight Show Starring Jimmy Fallon",
+    "phrases": [
+      { "en": "as soon as", "pl": "gdy tylko" },
+      { "en": "get off stage", "pl": "zejść ze sceny" },
+      { "en": "raccoons", "pl": "szopy" },
+      { "en": "came out", "pl": "wyszła" },
+      { "en": "so cute", "pl": "takie urocze" }
+    ],
     "subtitles": [
       { "from": 351.08, "to": 353.28, "en": "And I get off stage, and I'm just like, well.", "pl": "Schodzę ze sceny i myślę sobie: no cóż." },
       { "from": 353.28, "to": 357.4, "en": "And they go, did you see the raccoons?", "pl": "A oni na to: widziałaś szopy?" },
@@ -163,6 +190,12 @@
     "aspect": "16:9",
     "title": "Angry Student YELLS at Myron Gaines During Immigration Debate",
     "channel": "Uncensored America Clips",
+    "phrases": [
+      { "en": "criminal convictions", "pl": "wyroki karne" },
+      { "en": "exact percentage", "pl": "dokładny odsetek" },
+      { "en": "clapping for", "pl": "bić brawo (komuś)" },
+      { "en": "shortened", "pl": "skróciło" }
+    ],
     "subtitles": [
       { "from": 19.34, "to": 21.7, "en": "Some of them have a percentage.", "pl": "Część z nich, jakiś procent." },
       { "from": 21.7, "to": 23.34, "en": "What's the percentage of criminal convictions?", "pl": "Jaki jest odsetek wyroków karnych?" },
@@ -204,6 +237,13 @@
     "aspect": "16:9",
     "title": "Reese's recipe debate heats up",
     "channel": "Good Morning America",
+    "phrases": [
+      { "en": "mess with", "pl": "zadzierać z" },
+      { "en": "not enough", "pl": "za mało" },
+      { "en": "much respect", "pl": "wielki szacunek" },
+      { "en": "no issue with", "pl": "brak zastrzeżeń do" },
+      { "en": "tough decisions", "pl": "trudne decyzje" }
+    ],
     "subtitles": [
       { "from": 92.78, "to": 94.6, "en": "Brad says that's not enough.", "pl": "Brad mówi, że to za mało." },
       { "from": 94.6, "to": 98.04, "en": "What my grandfather did, I have much respect for him.", "pl": "To, co zrobił mój dziadek... mam dla niego wielki szacunek." },
@@ -243,6 +283,13 @@
     "aspect": "16:9",
     "title": "Dakota Johnson Talks Billie Eilish Prank and Pedro Pascal Stealing Her Clothes, Plays Fast Forward",
     "channel": "The Tonight Show Starring Jimmy Fallon",
+    "phrases": [
+      { "en": "figure out", "pl": "zrozumieć, dojść do czegoś" },
+      { "en": "matchmaker", "pl": "swatka" },
+      { "en": "good at her job", "pl": "dobra w swojej pracy" },
+      { "en": "valuable", "pl": "wartościowy" },
+      { "en": "love triangle", "pl": "trójkąt miłosny" }
+    ],
     "subtitles": [
       { "from": 536, "to": 538.88, "en": "Materialist is about a matchmaker in New York City", "pl": "„Materialist” opowiada o swatce z Nowego Jorku," },
       { "from": 538.88, "to": 541.52, "en": "who is very, very good at her job,", "pl": "która jest bardzo, bardzo dobra w swojej pracy," },

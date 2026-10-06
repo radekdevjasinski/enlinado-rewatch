@@ -26,6 +26,9 @@ Wszystkie klipy są w `src/data/clips.json`. Dopisz do tablicy nowy obiekt:
   "aspect": "16:9",
   "title": "Tytuł filmu",
   "channel": "Nazwa kanału",
+  "phrases": [
+    { "en": "English phrase", "pl": "polskie znaczenie" }
+  ],
   "subtitles": [
     { "from": 42.0, "to": 45.5, "en": "English line", "pl": "Polskie tłumaczenie" }
   ],
@@ -47,6 +50,7 @@ Zasady:
 - `start` i `end` to sekundy liczone od początku filmu.
 - `from` i `to` w napisach też są liczone od początku filmu, nie od `start`.
 - `aspect` to `"16:9"` albo `"9:16"` (Shorts).
+- `phrases` jest opcjonalne. Pierwszy zwrot trafia do panelu „Zwrot z klipu", wszystkie do podsumowania quizu. Zwrot, który występuje w linii napisów, jest w niej podświetlany.
 - `correct` to indeks poprawnej odpowiedzi, liczony od 0.
 - Quiz może mieć od 1 do 3 pytań.
 

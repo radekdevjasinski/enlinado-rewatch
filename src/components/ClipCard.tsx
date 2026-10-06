@@ -10,10 +10,24 @@ interface ClipCardProps {
 }
 
 export function ClipCard({ clip, isActive, playback }: ClipCardProps) {
+  if (isActive) {
+    return (
+      <article className="clip-card">
+        <ActiveClip clip={clip} {...playback} />
+      </article>
+    );
+  }
+
   return (
     <article className="clip-card">
-      <SourceInfo clip={clip} />
-      {isActive ? <ActiveClip clip={clip} {...playback} /> : <ClipThumbnail clip={clip} />}
+      <div className="player-area">
+        <ClipThumbnail clip={clip} />
+      </div>
+      <div className="clip-body">
+        <div className="clip-info">
+          <SourceInfo clip={clip} />
+        </div>
+      </div>
     </article>
   );
 }

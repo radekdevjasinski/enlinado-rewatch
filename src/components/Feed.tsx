@@ -13,7 +13,7 @@ export function Feed({ clips, onCorrectAnswer }: FeedProps) {
   const feedRef = useRef<HTMLDivElement>(null);
   const activeIndex = useActiveClipIndex(feedRef);
   const [hasPlaybackStarted, setHasPlaybackStarted] = useState(false);
-  const [isTranslationVisible, setIsTranslationVisible] = useState(false);
+  const [isTranslationVisible, setIsTranslationVisible] = useState(true);
 
   const scrollToClip = useCallback((clipIndex: number) => {
     feedRef.current?.children[clipIndex]?.scrollIntoView({ behavior: 'smooth' });
@@ -40,6 +40,7 @@ export function Feed({ clips, onCorrectAnswer }: FeedProps) {
             onToggleTranslation: toggleTranslation,
             onPlaybackStarted: markPlaybackStarted,
             onCorrectAnswer,
+            onPrevious: clipIndex > 0 ? () => scrollToClip(clipIndex - 1) : undefined,
             onNext: clipIndex < clips.length - 1 ? () => scrollToClip(clipIndex + 1) : undefined,
           }}
         />

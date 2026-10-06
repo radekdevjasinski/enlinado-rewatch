@@ -12,7 +12,7 @@ export function SourceInfo({ clip }: SourceInfoProps) {
       <p className="source-info__meta">
         <span>{clip.channel}</span>
         <a href={buildWatchUrl(clip)} target="_blank" rel="noopener">
-          Oryginał na YouTubie ↗
+          Oryginał na YouTube ↗
         </a>
       </p>
     </header>

@@ -67,12 +67,15 @@ export function useYouTubePlayer(clip: Clip, shouldAutoplay: boolean) {
   }, [currentTime, status, clip.end]);
 
   const play = useCallback(() => playerRef.current?.playVideo(), []);
+  const pause = useCallback(() => playerRef.current?.pauseVideo(), []);
 
-  const replay = useCallback(() => {
+  const seekTo = useCallback((seconds: number) => {
     hasEnteredFragmentRef.current = false;
-    playerRef.current?.seekTo(clip.start, true);
+    playerRef.current?.seekTo(seconds, true);
     playerRef.current?.playVideo();
-  }, [clip.start]);
+  }, []);
 
-  return { hostRef, status, errorCode, currentTime, play, replay };
+  const replay = useCallback(() => seekTo(clip.start), [clip.start, seekTo]);
+
+  return { hostRef, status, errorCode, currentTime, play, pause, seekTo, replay };
 }
