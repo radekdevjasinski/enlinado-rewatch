@@ -4,6 +4,8 @@ import { useArrowNavigation } from '../hooks/useArrowNavigation';
 import type { Clip } from '../types/Clip';
 import { ClipCard } from './ClipCard';
 
+const CLIPS_RENDERED_AHEAD = 2;
+
 interface FeedProps {
   clips: Clip[];
   onCorrectAnswer: (answerKey: string) => void;
@@ -11,7 +13,10 @@ interface FeedProps {
 
 export function Feed({ clips, onCorrectAnswer }: FeedProps) {
   const feedRef = useRef<HTMLDivElement>(null);
-  const activeIndex = useActiveClipIndex(feedRef);
+  const [renderedCount, setRenderedCount] = useState(CLIPS_RENDERED_AHEAD + 1);
+  const activeIndex = useActiveClipIndex(feedRef, Math.min(renderedCount, clips.length));
+  const neededCount = activeIndex + CLIPS_RENDERED_AHEAD + 1;
+  if (neededCount > renderedCount) setRenderedCount(neededCount);
   const [hasPlaybackStarted, setHasPlaybackStarted] = useState(false);
   const [isTranslationVisible, setIsTranslationVisible] = useState(true);
 
@@ -29,7 +34,7 @@ export function Feed({ clips, onCorrectAnswer }: FeedProps) {
 
   return (
     <main ref={feedRef} className="feed">
-      {clips.map((clip, clipIndex) => (
+      {clips.slice(0, renderedCount).map((clip, clipIndex) => (
         <ClipCard
           key={clip.id}
           clip={clip}

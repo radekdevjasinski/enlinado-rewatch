@@ -2,7 +2,7 @@ import { useEffect, useState, type RefObject } from 'react';
 
 const ACTIVE_VISIBILITY_THRESHOLD = 0.6;
 
-export function useActiveClipIndex(feedRef: RefObject<HTMLElement | null>): number {
+export function useActiveClipIndex(feedRef: RefObject<HTMLElement | null>, cardCount: number): number {
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
@@ -18,7 +18,7 @@ export function useActiveClipIndex(feedRef: RefObject<HTMLElement | null>): numb
     );
     cards.forEach((card) => observer.observe(card));
     return () => observer.disconnect();
-  }, [feedRef]);
+  }, [feedRef, cardCount]);
 
   return activeIndex;
 }
