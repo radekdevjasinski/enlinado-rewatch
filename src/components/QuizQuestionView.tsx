@@ -1,4 +1,5 @@
 import type { QuizQuestion } from '../types/QuizQuestion';
+import { QuotedText } from './QuotedText';
 
 const OPTION_LETTERS = 'ABCDEF';
 
@@ -21,7 +22,9 @@ export function QuizQuestionView({ question, selectedOption, onSelect }: QuizQue
 
   return (
     <div className="quiz-question">
-      <h3 className="quiz-question__text">{question.question}</h3>
+      <h3 className="quiz-question__text">
+        <QuotedText text={question.question} />
+      </h3>
       <ul className="quiz-options">
         {question.options.map((option, optionIndex) => (
           <li key={option}>
@@ -40,7 +43,9 @@ export function QuizQuestionView({ question, selectedOption, onSelect }: QuizQue
       {isAnswered && (
         <div className={isCorrect ? 'quiz-feedback quiz-feedback--correct' : 'quiz-feedback quiz-feedback--wrong'} role="status">
           <strong>{isCorrect ? 'Dobrze!' : 'Nie tym razem'}</strong>
-          <p>{question.explanation}</p>
+          <p>
+            <QuotedText text={question.explanation} />
+          </p>
         </div>
       )}
     </div>

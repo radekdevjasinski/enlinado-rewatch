@@ -1,12 +1,13 @@
 import { useEffect, useEffectEvent, useState } from 'react';
 import { useYouTubePlayer } from '../hooks/useYouTubePlayer';
+import { countAttemptQuestions } from '../quiz/drawQuizQuestions';
 import { findCurrentLineIndex } from '../subtitles/findCurrentLineIndex';
 import type { Clip } from '../types/Clip';
 import type { ClipPhase } from '../types/ClipPhase';
 import { ClipNavigation } from './ClipNavigation';
 import { ClipStudy } from './ClipStudy';
 import { formatQuestionCount } from './formatQuestionCount';
-import { FragmentSlider } from './FragmentSlider';
+import { FragmentTimeline } from './FragmentTimeline';
 import { ListeningPrompt } from './ListeningPrompt';
 import { PhaseStepper } from './PhaseStepper';
 import { getPlayerFrameClassName } from './playerFrameClassName';
@@ -67,9 +68,11 @@ export function ActiveClip(props: ActiveClipProps) {
     else player.play();
   };
 
-  const seekWithinFragment = (seconds: number) => {
-    if (seconds >= clip.end) player.finish();
-    else player.seekTo(seconds);
+  const goToPreviousLine = () => player.seekTo(clip.subtitles[activeLineIndex - 1]?.from ?? clip.start);
+  const goToNextLine = () => {
+    const nextLine = clip.subtitles[activeLineIndex + 1];
+    if (nextLine) player.seekTo(nextLine.from);
+    else player.finish();
   };
 
   const advanceAfterFragmentEnd = useEffectEvent(() => {
@@ -89,19 +92,31 @@ export function ActiveClip(props: ActiveClipProps) {
     <>
       <div className="player-area">
         <div ref={player.hostRef} className={getPlayerFrameClassName(clip.aspect)} />
-        <FragmentSlider
-          start={clip.start}
-          end={clip.end}
-          currentTime={currentTime}
-          isDisabled={status === 'loading' || hasError}
-          onSeek={seekWithinFragment}
-        />
+        {!hasError && (
+          <div className="fragment-controls">
+            <FragmentTimeline
+              lines={clip.subtitles}
+              currentTime={currentTime}
+              activeIndex={activeLineIndex}
+              isDisabled={status === 'loading'}
+              areLinesRevealed={phase !== 'listening'}
+              onSeek={player.seekTo}
+            />
+            <PlaybackControls
+              isPlaying={status === 'playing'}
+              isDisabled={status === 'loading'}
+              elapsedSeconds={Math.min(Math.max(currentTime, clip.start), clip.end) - clip.start}
+              durationSeconds={clip.end - clip.start}
+              onPreviousLine={goToPreviousLine}
+              onToggle={togglePlayback}
+              onNextLine={goToNextLine}
+            />
+          </div>
+        )}
       </div>
       <div className="clip-body">
         <div className="clip-info">
-          {!hasError && phase === 'listening' && (
-            <p className="subtitle-box subtitle-box--concealed">Napisy są ukryte na tym etapie.</p>
-          )}
+          {!hasError && phase === 'listening' && <ListeningPrompt onShowSubtitles={showSubtitles} />}
           {!hasError && phase !== 'listening' && (
             <SubtitleBox
               line={clip.subtitles[activeLineIndex]}
@@ -109,17 +124,11 @@ export function ActiveClip(props: ActiveClipProps) {
               isTranslationVisible={props.isTranslationVisible}
             />
           )}
-          {!hasError && (
-            <PlaybackControls
-              isPlaying={status === 'playing'}
-              isDisabled={status === 'loading'}
-              onRestart={player.replay}
-              onToggle={togglePlayback}
-              onFinish={player.finish}
-            />
-          )}
-          <div className="source-info">
-            <SourceMeta clip={clip} />
+          <div className="source-row">
+            <div className="source-info">
+              <SourceMeta clip={clip} />
+            </div>
+            <ClipNavigation onPrevious={props.onPrevious} onNext={onNext} />
           </div>
         </div>
         {hasError && (
@@ -132,22 +141,19 @@ export function ActiveClip(props: ActiveClipProps) {
         {!hasError && (
           <div className="clip-side">
             <PhaseStepper currentPhase={phase} onSelect={selectPhase} />
-            {phase === 'listening' ? (
-              <ListeningPrompt isHidden={isQuizOpen} onShowSubtitles={showSubtitles} />
-            ) : (
-              <ClipStudy
-                clip={clip}
-                activeLineIndex={activeLineIndex}
-                isHidden={isQuizOpen}
-                isTranslationVisible={props.isTranslationVisible}
-                onToggleTranslation={props.onToggleTranslation}
-                onSeek={player.seekTo}
-                onOpenQuiz={openQuiz}
-              />
-            )}
+            <ClipStudy
+              clip={clip}
+              activeLineIndex={activeLineIndex}
+              isHidden={isQuizOpen}
+              isTranscriptConcealed={phase === 'listening'}
+              isTranslationVisible={props.isTranslationVisible}
+              onToggleTranslation={props.onToggleTranslation}
+              onSeek={player.seekTo}
+              onOpenQuiz={openQuiz}
+            />
             <QuizSheet
               isOpen={isQuizOpen}
-              label={`Quiz · ${formatQuestionCount(clip.quiz.length)}`}
+              label={`Quiz · ${formatQuestionCount(countAttemptQuestions(clip.quiz))}`}
               onOpen={openQuiz}
               onClose={showSubtitles}
             >
@@ -156,14 +162,12 @@ export function ActiveClip(props: ActiveClipProps) {
                 questions={clip.quiz}
                 phrases={phrases}
                 onCorrectAnswer={(questionIndex) => props.onCorrectAnswer(`${clip.id}:${questionIndex}`)}
-                onClose={showSubtitles}
                 onReplay={replay}
                 onNext={onNext}
               />
             </QuizSheet>
           </div>
         )}
-        <ClipNavigation onPrevious={props.onPrevious} onNext={onNext} />
       </div>
     </>
   );

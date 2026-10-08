@@ -25,115 +25,39 @@
     ],
     "quiz": [
       {
+        "type": "single_choice",
         "question": "Do czego autor porównuje mózg, który jest odpowiednio przygotowany do przyswajania wiedzy?",
         "options": ["Do naładowanej baterii", "Do suchej gąbki", "Do czystej kartki papieru"],
         "correct": 1,
         "explanation": "Mówi „almost like a dry sponge”, czyli „prawie jak sucha gąbka”, gotowa wchłaniać („soak up”) nowe informacje."
       },
       {
+        "type": "single_choice",
         "question": "Uzupełnij zdanie: „And without sleep, the memory ___ of the brain essentially become waterlogged.”",
         "options": ["circuits", "circles", "cells"],
         "correct": 0,
         "explanation": "„Memory circuits” to „obwody pamięci”. „Circles” to koła, a „cells” to komórki."
       },
       {
+        "type": "true_false",
         "question": "Prawda czy fałsz: według autora brak snu powoduje, że obwody pamięciowe w mózgu stają się „przesiąknięte wodą”, co blokuje zapamiętywanie.",
         "options": ["Prawda", "Fałsz"],
         "correct": 0,
         "explanation": "„Waterlogged” znaczy „przesiąknięty wodą”. Autor dodaje: „you can't absorb new memories”."
-      }
-    ]
-  },
-  {
-    "id": "clip-02",
-    "videoId": "jNI0fiX4q4A",
-    "start": 73.94,
-    "end": 95.84,
-    "aspect": "16:9",
-    "title": "Learn English quickly with podcast | English learning Conversation | Episode 1",
-    "channel": "[DO UZUPEŁNIENIA] kanał (film niedostępny na YouTubie)",
-    "phrases": [
-      { "en": "slipped my mind", "pl": "wyleciało mi z głowy" },
-      { "en": "in a bit of a hurry", "pl": "trochę się spieszyć" },
-      { "en": "meet up", "pl": "spotkać się" },
-      { "en": "embarrassing", "pl": "krępujące" },
-      { "en": "terrible with names", "pl": "fatalna pamięć do imion" }
-    ],
-    "subtitles": [
-      { "from": 73.94, "to": 77.2, "en": "You know, I'm in a bit of a hurry, but here's my card.", "pl": "Wiesz, trochę się spieszę, ale oto moja wizytówka." },
-      { "from": 77.2, "to": 80.1, "en": "We should definitely meet up again and continue our discussion.", "pl": "Zdecydowanie powinniśmy się znów spotkać i dokończyć rozmowę." },
-      { "from": 80.1, "to": 83.38, "en": "Sure, you still have my contact details, right?", "pl": "Jasne, nadal masz moje dane kontaktowe, prawda?" },
-      { "from": 83.38, "to": 84.74, "en": "You know what?", "pl": "Wiesz co?" },
-      { "from": 84.74, "to": 86.3, "en": "This is really embarrassing,", "pl": "To naprawdę krępujące," },
-      { "from": 86.3, "to": 88.56, "en": "but your name has just slipped my mind.", "pl": "ale twoje imię właśnie wyleciało mi z głowy." },
-      { "from": 88.56, "to": 89.7, "en": "Can you remind me?", "pl": "Możesz mi przypomnieć?" },
-      { "from": 89.7, "to": 91.86, "en": "Sure. My name is Anna Ferris.", "pl": "Jasne. Nazywam się Anna Ferris." },
-      { "from": 91.86, "to": 94.66, "en": "Don't worry about it. It happens to me all the time.", "pl": "Nie przejmuj się. Mnie zdarza się to cały czas." },
-      { "from": 94.66, "to": 95.84, "en": "I'm terrible with names too.", "pl": "Ja też mam fatalną pamięć do imion." }
-    ],
-    "quiz": [
-      {
-        "question": "Dlaczego Nick poprosił Annę o przypomnienie jej imienia?",
-        "options": ["Ponieważ chciał sprawdzić, czy Anna je pamięta.", "Ponieważ nazwisko nagle wyleciało mu z głowy.", "Ponieważ nigdy wcześniej go nie usłyszał."],
-        "correct": 1,
-        "explanation": "Mówi „your name has just slipped my mind”, czyli „twoje imię właśnie wyleciało mi z głowy”."
       },
       {
-        "question": "Uzupełnij zdanie: „Your name has just ___ my mind.”",
-        "options": ["fallen", "skipped", "slipped"],
-        "correct": 2,
-        "explanation": "Stały zwrot to „slip one's mind”. Z „fall” i „skip” takie wyrażenie nie występuje."
-      },
-      {
-        "question": "Prawda czy fałsz: wyrażenie „slipped my mind” oznacza, że ktoś o czymś zapomniał.",
-        "options": ["Prawda", "Fałsz"],
+        "type": "single_choice",
+        "question": "Co znaczy „soak up” w zdaniu „ready to initially soak up new information”?",
+        "options": ["Wchłaniać", "Wysuszać", "Powtarzać"],
         "correct": 0,
-        "explanation": "„It slipped my mind” to potoczne „wyleciało mi z głowy”."
-      }
-    ]
-  },
-  {
-    "id": "clip-03",
-    "videoId": "nh36jE2M064",
-    "start": 13.82,
-    "end": 36.38,
-    "aspect": "16:9",
-    "title": "Learn English Vlog - My Real Morning Routine ✨",
-    "channel": "Smashing English! Free and Fun English Lessons!",
-    "phrases": [
-      { "en": "lie in", "pl": "pospać dłużej" },
-      { "en": "wake up", "pl": "obudzić się" },
-      { "en": "woken up", "pl": "obudzony (forma od „wake up”)" },
-      { "en": "get up", "pl": "wstać" }
-    ],
-    "subtitles": [
-      { "from": 13.82, "to": 15.36, "en": "So wake up.", "pl": "A więc „wake up”, czyli obudzić się." },
-      { "from": 15.36, "to": 17.84, "en": "I've just woken up.", "pl": "Właśnie się obudziłam." },
-      { "from": 17.84, "to": 21.56, "en": "But now I'm going to get up.", "pl": "Ale teraz zamierzam wstać." },
-      { "from": 21.56, "to": 24.18, "en": "So physically getting out of the bed", "pl": "Czyli fizycznie wychodzę z łóżka," },
-      { "from": 24.18, "to": 26.92, "en": "I'm going to get up.", "pl": "zamierzam wstać." },
-      { "from": 26.92, "to": 29.96, "en": "On a Sunday I try to lie in.", "pl": "W niedzielę staram się pospać dłużej." },
-      { "from": 29.96, "to": 32.46, "en": "I try to have a lie in", "pl": "Staram się zrobić sobie „lie in”," },
-      { "from": 32.46, "to": 36.38, "en": "which means to sleep later than you usually would.", "pl": "czyli spać dłużej niż zwykle." }
-    ],
-    "quiz": [
-      {
-        "question": "Co według autorki nagrania oznacza wyrażenie „to lie in”?",
-        "options": ["Kłaść się spać wcześniej niż zwykle", "Spać dłużej niż zazwyczaj", "Drzemać w ciągu dnia"],
-        "correct": 1,
-        "explanation": "Autorka tłumaczy: „to sleep later than you usually would”, czyli spać dłużej niż zwykle."
+        "explanation": "„Soak up” to „wchłaniać, chłonąć”, tak jak gąbka chłonie wodę."
       },
       {
-        "question": "Uzupełnij zdanie: „Physically getting ___ of the bed I'm going to get up.”",
-        "options": ["from", "out", "off"],
-        "correct": 1,
-        "explanation": "Mówimy „get out of bed”, czyli „wyjść z łóżka”. Po „out” stoi „of”."
-      },
-      {
-        "question": "Prawda czy fałsz: autorka wyjaśnia, że „get up” oznacza fizyczne wyjście z łóżka.",
-        "options": ["Prawda", "Fałsz"],
+        "type": "single_choice",
+        "question": "Co znaczy wtrącenie „as it were”?",
+        "options": ["Że tak powiem", "Tak jak było", "Jak zawsze"],
         "correct": 0,
-        "explanation": "„Wake up” to obudzić się, a „get up” to wstać: „physically getting out of the bed”."
+        "explanation": "„As it were” łagodzi obrazowe porównanie. Po polsku: „że tak powiem”."
       }
     ]
   },
@@ -163,69 +87,39 @@
     ],
     "quiz": [
       {
+        "type": "single_choice",
         "question": "O co zapytali aktorkę współpracownicy, gdy tylko zeszła ze sceny?",
         "options": ["Czy widziała rodzinę szopów?", "Czy słyszała śmiech widowni?", "Czy chce wrócić na scenę na bis?"],
         "correct": 0,
         "explanation": "Pytają: „did you see the raccoons?”. „Raccoon” to szop."
       },
       {
+        "type": "single_choice",
         "question": "Uzupełnij zdanie: „As soon as you ___ on stage, a family of raccoons came out.”",
         "options": ["went", "came", "saw"],
         "correct": 1,
         "explanation": "W nagraniu pada „came on stage”. „As soon as” znaczy „gdy tylko”."
       },
       {
+        "type": "true_false",
         "question": "Prawda czy fałsz: aktorka zauważyła szopy w tym samym momencie, w którym pojawiły się na scenie.",
         "options": ["Prawda", "Fałsz"],
         "correct": 1,
         "explanation": "Szopy wyszły za jej plecami („behind you”). Dowiedziała się o nich dopiero po zejściu ze sceny."
-      }
-    ]
-  },
-  {
-    "id": "clip-05",
-    "videoId": "OjUg1LwjZCU",
-    "start": 19.34,
-    "end": 44.64,
-    "aspect": "16:9",
-    "title": "Angry Student YELLS at Myron Gaines During Immigration Debate",
-    "channel": "Uncensored America Clips",
-    "phrases": [
-      { "en": "criminal convictions", "pl": "wyroki karne" },
-      { "en": "exact percentage", "pl": "dokładny odsetek" },
-      { "en": "clapping for", "pl": "bić brawo (komuś)" },
-      { "en": "shortened", "pl": "skróciło" }
-    ],
-    "subtitles": [
-      { "from": 19.34, "to": 21.7, "en": "Some of them have a percentage.", "pl": "Część z nich, jakiś procent." },
-      { "from": 21.7, "to": 23.34, "en": "What's the percentage of criminal convictions?", "pl": "Jaki jest odsetek wyroków karnych?" },
-      { "from": 23.34, "to": 25.16, "en": "Some of them are criminal aliens, some of them are not.", "pl": "Niektórzy z nich to cudzoziemcy z przeszłością kryminalną, inni nie." },
-      { "from": 25.16, "to": 27, "en": "What does the number? Do you know the number?", "pl": "Jaka to liczba? Znasz tę liczbę?" },
-      { "from": 27, "to": 28.04, "en": "I don't know the exact percentage.", "pl": "Nie znam dokładnego odsetka." },
-      { "from": 28.04, "to": 30.48, "en": "Seventy percent of them have no criminal convictions.", "pl": "Siedemdziesiąt procent z nich nie ma wyroków karnych." },
-      { "from": 30.48, "to": 31.34, "en": "OK. OK,", "pl": "OK. OK," },
-      { "from": 31.34, "to": 36.56, "en": "so do you think that's a number that we need to really be clapping for ICE?", "pl": "więc uważasz, że to liczba, za którą naprawdę mamy bić ICE brawo?" },
-      { "from": 36.56, "to": 39.74, "en": "Do you know that ICE actually shortened their training", "pl": "Wiesz, że ICE skróciło swoje szkolenie" },
-      { "from": 39.74, "to": 44.64, "en": "from 22 weeks to, wait, what, eight weeks?", "pl": "z 22 tygodni do, zaraz, ilu, ośmiu tygodni?" }
-    ],
-    "quiz": [
-      {
-        "question": "Jaki fakt dotyczący osób zatrzymanych przez ICE zostaje przytoczony w nagraniu?",
-        "options": ["Większość z nich to osoby z niebezpieczną przeszłością kryminalną.", "Siedemdziesiąt procent zatrzymanych nie posiada wyroków karnych.", "Wszyscy zatrzymani przechodzą przez system federalny."],
-        "correct": 1,
-        "explanation": "Pada zdanie: „Seventy percent of them have no criminal convictions”."
       },
       {
-        "question": "Uzupełnij zdanie: „Seventy percent of them have no criminal ___.”",
-        "options": ["convictions", "records", "crimes"],
+        "type": "single_choice",
+        "question": "Co znaczy „as soon as”?",
+        "options": ["Gdy tylko", "Zanim", "Mimo że"],
         "correct": 0,
-        "explanation": "„Criminal conviction” to „wyrok karny”, czyli skazanie przez sąd."
+        "explanation": "„As soon as you came on stage” to „gdy tylko weszłaś na scenę”."
       },
       {
-        "question": "Prawda czy fałsz: rozmówca twierdzi, że czas szkolenia agentów ICE został skrócony z 22 tygodni do 8 tygodni.",
-        "options": ["Prawda", "Fałsz"],
+        "type": "single_choice",
+        "question": "Jak aktorka opisuje szopy?",
+        "options": ["Były takie urocze", "Były bardzo głośne", "Były groźne"],
         "correct": 0,
-        "explanation": "Mówi: „shortened their training from 22 weeks to (...) eight weeks”. „Shorten” znaczy „skrócić”."
+        "explanation": "Mówi: „They were so cute”. „Cute” znaczy „uroczy”."
       }
     ]
   },
@@ -256,22 +150,39 @@
     ],
     "quiz": [
       {
+        "type": "single_choice",
         "question": "Czego domaga się Brad w kontekście firmy Hershey's?",
         "options": ["Zwolnienia wszystkich pracowników produkcyjnych.", "Podjęcia trudnych decyzji przez zarząd w celu powrotu do tradycji.", "Wypłacenia mu odszkodowania za wykorzystanie nazwiska."],
         "correct": 1,
         "explanation": "Brad liczy, że „the board at Hershey's will make some tough decisions”, czyli że zarząd podejmie trudne decyzje."
       },
       {
+        "type": "single_choice",
         "question": "Uzupełnij zdanie: „This is a ___ that I feel it's almost like I prepared my whole life for it.”",
         "options": ["mission", "problem", "recipe"],
         "correct": 0,
         "explanation": "Brad nazywa swoje działania misją („mission”), do której przygotowywał się całe życie."
       },
       {
+        "type": "true_false",
         "question": "Prawda czy fałsz: Brad twierdzi, że jego głównym problemem są pracownicy zatrudnieni w fabrykach Hershey's.",
         "options": ["Prawda", "Fałsz"],
         "correct": 1,
         "explanation": "Jest odwrotnie: „he has no issue with the employees”. Chodzi mu o kierownictwo firmy („company leadership”)."
+      },
+      {
+        "type": "single_choice",
+        "question": "Co znaczy „You don't mess with Reese's”?",
+        "options": ["Z Reese's się nie zadziera", "Reese's nie robi bałaganu", "Reese's nie łączy się z innymi słodyczami"],
+        "correct": 0,
+        "explanation": "„Mess with” znaczy „zadzierać z kimś” albo „majstrować przy czymś”."
+      },
+      {
+        "type": "single_choice",
+        "question": "Do kogo Brad ma wielki szacunek?",
+        "options": ["Do swojego dziadka", "Do zarządu Hershey's", "Do prowadzącego program"],
+        "correct": 0,
+        "explanation": "Mówi: „What my grandfather did, I have much respect for him”."
       }
     ]
   },
@@ -301,22 +212,39 @@
     ],
     "quiz": [
       {
+        "type": "single_choice",
         "question": "Kim z zawodu jest główna bohaterka filmu?",
         "options": ["Jest agentką nieruchomości", "Jest profesjonalną swatką (matchmaker)", "Jest nauczycielką w Nowym Jorku"],
         "correct": 1,
         "explanation": "„A matchmaker in New York City”. „Matchmaker” to swatka, osoba kojarząca pary."
       },
       {
+        "type": "single_choice",
         "question": "Uzupełnij zdanie: „She is also sort of trying to ___ out for herself what love means.”",
         "options": ["look", "figure", "take"],
         "correct": 1,
         "explanation": "„Figure out” znaczy „zrozumieć, dojść do czegoś”. „Look out” to „uważać”, a „take out” to „wyjąć”."
       },
       {
+        "type": "true_false",
         "question": "Prawda czy fałsz: główna bohaterka filmu próbuje zrozumieć, co tak naprawdę jest w życiu wartościowe.",
         "options": ["Prawda", "Fałsz"],
         "correct": 0,
         "explanation": "Tak: „what is really actually valuable in life”. „Valuable” znaczy „wartościowy”."
+      },
+      {
+        "type": "single_choice",
+        "question": "Co znaczy „love triangle”?",
+        "options": ["Trójkąt miłosny", "Miłość od pierwszego wejrzenia", "Nieszczęśliwa miłość"],
+        "correct": 0,
+        "explanation": "„Triangle” to trójkąt. „It's sort of a bit of a love triangle” to „to taki trochę trójkąt miłosny”."
+      },
+      {
+        "type": "single_choice",
+        "question": "Co znaczy „very good at her job”?",
+        "options": ["Bardzo dobra w swojej pracy", "Bardzo zadowolona z pracy", "Bardzo zapracowana"],
+        "correct": 0,
+        "explanation": "„To be good at something” znaczy „być w czymś dobrym”."
       }
     ]
   }

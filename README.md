@@ -34,6 +34,7 @@ Wszystkie klipy są w `src/data/clips.json`. Dopisz do tablicy nowy obiekt:
   ],
   "quiz": [
     {
+      "type": "single_choice",
       "question": "Pytanie po polsku lub angielsku",
       "options": ["Odpowiedź A", "Odpowiedź B", "Odpowiedź C"],
       "correct": 0,
@@ -50,15 +51,18 @@ Zasady:
 - `start` i `end` to sekundy liczone od początku filmu.
 - `from` i `to` w napisach też są liczone od początku filmu, nie od `start`.
 - `aspect` to `"16:9"` albo `"9:16"` (Shorts).
-- `phrases` jest opcjonalne. Pierwszy zwrot trafia do panelu „Zwrot z klipu", wszystkie do podsumowania quizu. Zwrot, który występuje w linii napisów, jest w niej podświetlany.
+- `phrases` jest opcjonalne. Wszystkie zwroty trafiają do podsumowania quizu. Zwrot, który występuje w linii napisów, jest w niej podświetlany.
+- `type` to `"single_choice"` albo `"true_false"`. Pytanie `true_false` ma odpowiedzi `["Prawda", "Fałsz"]` w tej kolejności.
 - `correct` to indeks poprawnej odpowiedzi, liczony od 0.
-- Quiz może mieć od 1 do 3 pytań.
+- Klip ma 5 pytań. Aplikacja losuje z nich 3 na każde podejście i miesza kolejność odpowiedzi (poza `true_false`).
+
+Pełny opis tego, co musi zawierać klip, jest w `clip-generator/CLAUDE.md`.
 
 Przed dodaniem sprawdź, czy film da się osadzić: otwórz `https://www.youtube.com/embed/<videoId>`. Jeśli właściciel wyłączył osadzanie, aplikacja pokaże komunikat z linkiem do oryginału zamiast odtwarzacza.
 
 ### Pola do uzupełnienia
 
-Brakujące dane są oznaczone w `clips.json` tekstem `[DO UZUPEŁNIENIA]`. Obecnie dotyczy to nazwy kanału w `clip-02`: film `jNI0fiX4q4A` nie jest już dostępny na YouTubie, więc karta pokazuje komunikat błędu zamiast odtwarzacza.
+Brakujące dane są oznaczone w `clips.json` tekstem `[DO UZUPEŁNIENIA]`. Obecnie żaden klip nie ma takich pól.
 
 `start` i `end` mogą być ułamkowe (np. `106.12`). Odtwarzacz YouTube przyjmuje tylko pełne sekundy, więc film startuje od sekundy zaokrąglonej w dół, a dokładny koniec fragmentu pilnuje aplikacja.
 

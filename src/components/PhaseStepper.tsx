@@ -30,7 +30,11 @@ export function PhaseStepper({ currentPhase, onSelect }: PhaseStepperProps) {
             aria-current={stepIndex === currentIndex ? 'step' : undefined}
             onClick={() => onSelect(step.phase)}
           >
-            {stepIndex + 1}. {step.label}
+            <span className="phase-step__bar" />
+            <span className="phase-step__label">
+              <span className="phase-step__mark">{stepIndex < currentIndex ? '✓' : stepIndex + 1}</span>
+              <span className="phase-step__name">{step.label}</span>
+            </span>
           </button>
         </li>
       ))}

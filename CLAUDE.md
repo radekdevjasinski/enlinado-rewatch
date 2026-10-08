@@ -30,18 +30,24 @@ src/
   hooks/                   useYouTubePlayer, useCurrentTime, useActiveClipIndex,
                            useArrowNavigation, useScore
   subtitles/               pure helpers: current line, phrase matching
+  quiz/                    pure helpers: draw questions for an attempt, shuffle options
+  random/                  shuffle
+  profile/                 placeholder level, streak and avatar values
   components/              one component per file
 .github/workflows/deploy.yml
 ```
 
 How the pieces fit:
 
-- `Feed` renders every clip as a `ClipCard` inside a scroll-snap container. `useActiveClipIndex` (IntersectionObserver) decides which card is active.
+- `App` shuffles the clips once per page load, so the feed order is random on every visit.
+- `Feed` renders clips as `ClipCard`s inside a scroll-snap container, but only up to `CLIPS_RENDERED_AHEAD` cards past the active one. More cards are appended as the user scrolls, so the DOM does not grow with the size of `clips.json`. `useActiveClipIndex` (IntersectionObserver) decides which card is active and re-observes the cards when their count changes.
 - Only the active card mounts `ActiveClip`, which owns the YouTube player. Other cards show a thumbnail. Leaving a card unmounts the player, which stops playback.
 - `useYouTubePlayer` creates the player, maps its events to a `PlayerStatus`, and stops playback at `clip.end`. `useCurrentTime` polls `getCurrentTime()` every 200 ms while playing.
-- `ActiveClip` walks each clip through three phases (`ClipPhase`): `listening` (no subtitles, `ListeningPrompt` instead of the transcript), `reading` (subtitles and transcript) and `quiz`. The end of the fragment in `listening` replays it in `reading`; the end in `reading` opens the quiz. `PhaseStepper` lets the user jump to any phase.
-- `.clip-side` wraps the stepper, `ClipStudy`/`ListeningPrompt` and `QuizSheet`. On phones it is `display: contents`, so the sheet still positions against `.clip-body`; from 1024px it is the right-hand grid column with the stepper above the panel. `ClipNavigation` sits in a third grid column on desktop.
-- `ClipStudy` (phrase, transcript, quiz button) and `QuizSheet` (quiz and summary) sit below the player. On phones the sheet slides up from the bottom; from 1024px they share the right-hand grid column.
+- `ActiveClip` walks each clip through three phases (`ClipPhase`): `listening` (`ListeningPrompt` instead of the subtitle box, transcript blurred and inert), `reading` (subtitles and transcript) and `quiz`. The end of the fragment in `listening` replays it in `reading`; the end in `reading` opens the quiz. `PhaseStepper` lets the user jump to any phase.
+- `.fragment-controls` sits under the player: `FragmentTimeline` (one clickable segment per subtitle line, width proportional to its duration) and `PlaybackControls` (time, previous line, play/pause, next line). Next on the last line calls `finish()`.
+- `.clip-side` wraps the stepper, `ClipStudy` and `QuizSheet`. On phones it is `display: contents`, so the sheet still positions against `.clip-body`; from 1024px it is the right-hand card with the stepper as its header. `ClipNavigation` is a pill next to the channel name, desktop only.
+- `src/profile/placeholderProfile.ts` feeds the parts of the design that do not work yet: `LevelBadge` (phone header), `StreakLabel` and `ProfileAvatar` (desktop header) and the streak in `QuizSummary`. The values are neutral placeholders, not real data.
+- `ClipStudy` (transcript, quiz button) and `QuizSheet` (quiz and summary) sit below the player. On phones the sheet slides up from the bottom; from 1024px they share the right-hand grid column.
 - `useScore` keeps the set of correctly answered questions in `localStorage` under `enlinadotok.correctAnswers`, keyed as `<clipId>:<questionIndex>`.
 
 ## Hard constraints
@@ -65,18 +71,22 @@ Everything lives in `src/data/clips.json`. The schema is `src/types/Clip.ts`; th
 - The YouTube player takes whole seconds only, so `createClipPlayer` floors `start` and ceils `end`. The exact end is enforced by the polling in `useYouTubePlayer`.
 - Subtitle lines are contiguous: each `to` equals the next line's `from`, and the last `to` equals `end`.
 - `phrases` is optional. A phrase that appears in a subtitle line is highlighted there (first match wins, case-insensitive).
-- Quiz questions are single choice with 1 to 3 questions per clip.
+- Each clip has 5 quiz questions. Every question has a `type`: `single_choice` or `true_false`.
+- A quiz attempt draws 3 random questions (`QUESTIONS_PER_ATTEMPT` in `src/quiz/drawQuizQuestions.ts`) and shuffles the options of `single_choice` questions. `true_false` keeps its order. The draw happens once per `QuizPanel` mount, so "Obejrzyj ponownie" redraws.
+- The score key uses the question's index in `clips.json`, not its position in the attempt, so reordering questions in the file changes which ones count as already answered.
+- `clip-generator/CLAUDE.md` is the spec for what a generated clip must contain. Keep it in sync with `src/types/` when the schema changes.
 
 The current content was derived from an older generator project at `C:\Users\radek.dev\Documents\enlinadotok generator`: fragment times and questions from `processed_videos/*_quiz.txt`, line timings from the Whisper word timestamps in `raw_videos/*_words.txt`. The `.mp4` files there must never be used by this app.
 
 ## Design
 
-The look follows the "Enlinadotok v2" project on claude.ai/design (project id `ce88cd76-1599-4fee-a978-357dda84c6c0`, file `Enlinadotok v2.dc.html`). Deliberate departures, all caused by the constraints above or by missing data:
+The look follows the "Enlinadotok v3" project file on claude.ai/design (project id `ce88cd76-1599-4fee-a978-357dda84c6c0`, file `Enlinadotok v3.dc.html`). Deliberate departures, all caused by the constraints above or by missing data:
 
 - No pause icon, level badge or progress bar on the player; the quiz sheet stops below the player.
 - 9:16 clips are not full screen with subtitles over the video.
 - The feed scrolls between clips; the design switched clips with buttons.
-- No level, streak or avatar, because there is no data or account for them.
+- Level, streak and avatar are shown as non-working placeholders (Radek's decision, 2026-10-08), because there is no data or account for them yet.
+- The level badge is never drawn on the player, and the active card still has no title of its own.
 
 ## Things that bite
 
@@ -85,7 +95,8 @@ The look follows the "Enlinadotok v2" project on claude.ai/design (project id `c
 - `useYouTubePlayer` reads `shouldAutoplay` once through a ref on purpose. Putting it in the effect dependencies would recreate the player when the first clip starts.
 - The player is mounted into a div created imperatively inside the host element, so React StrictMode's double effect does not fight the iframe that YouTube swaps in.
 - `disablePlayerCaptions` calls the undocumented `unloadModule('captions')` every time playback starts, so YouTube's own captions do not spoil the `listening` phase. It is not part of the official IFrame API and may stop working without notice.
-- `FragmentSlider` seeks through `seekTo`, which resets `hasEnteredFragmentRef`. A seek to exactly `clip.end` would therefore never end the fragment, so `ActiveClip` routes that case to `finish()` instead.
+- Every seek goes through `seekTo`, which resets `hasEnteredFragmentRef`. A seek to exactly `clip.end` would therefore never end the fragment, so use `finish()` for that case.
+- `FragmentTimeline` only sets the segment tooltip (the English line) outside the `listening` phase, so hovering does not reveal the subtitles early.
 - Git on this machine converts line endings to CRLF. Scripts that parse project files should split on `/\r?\n/`.
 
 ## Deployment

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { drawQuizQuestions } from '../quiz/drawQuizQuestions';
 import type { Phrase } from '../types/Phrase';
 import type { QuizQuestion } from '../types/QuizQuestion';
 import { QuizProgressDots } from './QuizProgressDots';
@@ -9,7 +10,6 @@ interface QuizPanelProps {
   questions: QuizQuestion[];
   phrases: Phrase[];
   onCorrectAnswer: (questionIndex: number) => void;
-  onClose: () => void;
   onReplay: () => void;
   onNext?: () => void;
 }
@@ -19,23 +19,26 @@ function getAdvanceLabel(isAnswered: boolean, isLastQuestion: boolean): string {
   return isLastQuestion ? 'Zobacz podsumowanie' : 'Następne pytanie';
 }
 
-export function QuizPanel({ questions, phrases, onCorrectAnswer, onClose, onReplay, onNext }: QuizPanelProps) {
+export function QuizPanel({ questions, phrases, onCorrectAnswer, onReplay, onNext }: QuizPanelProps) {
+  const [drawnQuestions] = useState(() => drawQuizQuestions(questions));
   const [questionIndex, setQuestionIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
   const [score, setScore] = useState(0);
-  const question = questions.at(questionIndex);
+  const drawnQuestion = drawnQuestions.at(questionIndex);
+  const questionCount = drawnQuestions.length;
   const isAnswered = selectedOption !== null;
-  const isLastQuestion = questionIndex === questions.length - 1;
+  const isLastQuestion = questionIndex === questionCount - 1;
 
-  if (!question) {
-    return <QuizSummary score={score} questionCount={questions.length} phrases={phrases} onReplay={onReplay} onNext={onNext} />;
+  if (!drawnQuestion) {
+    return <QuizSummary score={score} questionCount={questionCount} phrases={phrases} onReplay={onReplay} onNext={onNext} />;
   }
+  const { question, sourceIndex } = drawnQuestion;
 
   const selectOption = (optionIndex: number) => {
     setSelectedOption(optionIndex);
     if (optionIndex !== question.correct) return;
     setScore(score + 1);
-    onCorrectAnswer(questionIndex);
+    onCorrectAnswer(sourceIndex);
   };
 
   const advance = () => {
@@ -47,15 +50,12 @@ export function QuizPanel({ questions, phrases, onCorrectAnswer, onClose, onRepl
     <div className="quiz">
       <div className="quiz__header">
         <p className="eyebrow">
-          Pytanie {questionIndex + 1}/{questions.length}
+          Pytanie {questionIndex + 1}/{questionCount}
         </p>
-        <QuizProgressDots questionCount={questions.length} currentIndex={questionIndex} isCurrentAnswered={isAnswered} />
+        <QuizProgressDots questionCount={questionCount} currentIndex={questionIndex} isCurrentAnswered={isAnswered} />
       </div>
       <QuizQuestionView question={question} selectedOption={selectedOption} onSelect={selectOption} />
       <div className="quiz__actions">
-        <button type="button" className="button button--secondary quiz__back-button" onClick={onClose}>
-          Do klipu
-        </button>
         <button type="button" className="button button--primary" disabled={!isAnswered} onClick={advance}>
           {getAdvanceLabel(isAnswered, isLastQuestion)}
         </button>

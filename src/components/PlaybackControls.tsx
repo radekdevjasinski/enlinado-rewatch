@@ -1,35 +1,53 @@
+import { formatClockTime } from './formatClockTime';
+
 interface PlaybackControlsProps {
   isPlaying: boolean;
   isDisabled: boolean;
-  onRestart: () => void;
+  elapsedSeconds: number;
+  durationSeconds: number;
+  onPreviousLine: () => void;
   onToggle: () => void;
-  onFinish: () => void;
+  onNextLine: () => void;
 }
 
-export function PlaybackControls({ isPlaying, isDisabled, onRestart, onToggle, onFinish }: PlaybackControlsProps) {
+export function PlaybackControls(props: PlaybackControlsProps) {
+  const { isPlaying, isDisabled } = props;
+
   return (
     <div className="playback-controls">
-      <button
-        type="button"
-        className="button button--secondary playback-controls__jump"
-        disabled={isDisabled}
-        onClick={onRestart}
-        aria-label="Od początku fragmentu"
-      >
-        ⏮&#xFE0E;
-      </button>
-      <button type="button" className="button button--primary play-button" disabled={isDisabled} onClick={onToggle}>
-        {isPlaying ? '⏸ Zatrzymaj fragment' : '▶ Odtwórz fragment'}
-      </button>
-      <button
-        type="button"
-        className="button button--secondary playback-controls__jump"
-        disabled={isDisabled}
-        onClick={onFinish}
-        aria-label="Do końca fragmentu"
-      >
-        ⏭&#xFE0E;
-      </button>
+      <p className="playback-controls__time">
+        {formatClockTime(props.elapsedSeconds)}{' '}
+        <span className="playback-controls__duration">/ {formatClockTime(props.durationSeconds)}</span>
+      </p>
+      <div className="playback-controls__buttons">
+        <button
+          type="button"
+          className="playback-controls__line-button"
+          disabled={isDisabled}
+          onClick={props.onPreviousLine}
+          aria-label="Poprzednie zdanie"
+        >
+          <span className="icon-skip" />
+        </button>
+        <button
+          type="button"
+          className="playback-controls__toggle"
+          disabled={isDisabled}
+          onClick={props.onToggle}
+          aria-label={isPlaying ? 'Zatrzymaj fragment' : 'Odtwórz fragment'}
+        >
+          <span className={isPlaying ? 'icon-pause' : 'icon-play'} />
+        </button>
+        <button
+          type="button"
+          className="playback-controls__line-button"
+          disabled={isDisabled}
+          onClick={props.onNextLine}
+          aria-label="Następne zdanie"
+        >
+          <span className="icon-skip icon-skip--next" />
+        </button>
+      </div>
     </div>
   );
 }

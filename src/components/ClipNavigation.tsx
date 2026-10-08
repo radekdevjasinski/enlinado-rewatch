@@ -6,11 +6,12 @@ interface ClipNavigationProps {
 export function ClipNavigation({ onPrevious, onNext }: ClipNavigationProps) {
   return (
     <div className="clip-navigation">
-      <button type="button" className="round-button" disabled={!onPrevious} onClick={onPrevious} aria-label="Poprzedni klip">
-        ↑
+      <button type="button" className="clip-navigation__button" disabled={!onPrevious} onClick={onPrevious}>
+        ↑ Poprzedni
       </button>
-      <button type="button" className="round-button" disabled={!onNext} onClick={onNext} aria-label="Następny klip">
-        ↓
+      <span className="clip-navigation__divider" />
+      <button type="button" className="clip-navigation__button" disabled={!onNext} onClick={onNext}>
+        Następny ↓
       </button>
     </div>
   );

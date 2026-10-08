@@ -1,4 +1,6 @@
+import { PLACEHOLDER_PROFILE } from '../profile/placeholderProfile';
 import type { Phrase } from '../types/Phrase';
+import { formatStreakDays } from './formatStreakDays';
 
 interface QuizSummaryProps {
   score: number;
@@ -24,7 +26,9 @@ export function QuizSummary({ score, questionCount, phrases, onReplay, onNext }:
         </div>
         <div>
           <h3 className="quiz-summary__title">{describeScore(score, questionCount)}</h3>
-          <p className="quiz-summary__points">+{score} pkt</p>
+          <p className="quiz-summary__points">
+            Seria: <strong>{formatStreakDays(PLACEHOLDER_PROFILE.streakDays)}</strong> · +{score} pkt
+          </p>
         </div>
       </div>
       {phrases.length > 0 && (
