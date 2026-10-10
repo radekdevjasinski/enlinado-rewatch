@@ -251,5 +251,137 @@
         "explanation": "„To be good at something” znaczy „być w czymś dobrym”."
       }
     ]
+  },
+  {
+    "id": "clip-0008",
+    "videoId": "CDHR9tpgTT0",
+    "start": 189.58,
+    "end": 207.48,
+    "aspect": "16:9",
+    "level": "B2",
+    "title": "Sylvester Stallone Reveals How He Changed the Original Ending of Rocky | The Tonight Show",
+    "channel": "The Tonight Show Starring Jimmy Fallon",
+    "phrases": [
+      { "en": "working out", "pl": "ćwiczyć, trenować" },
+      { "en": "out of breath", "pl": "bez tchu, zadyszany" },
+      { "en": "he's got nothing going on", "pl": "nic mu nie wychodzi" },
+      { "en": "falling right into the trap", "pl": "wpadać prosto w pułapkę" },
+      { "en": "pays off at the end", "pl": "opłaca się na końcu" }
+    ],
+    "subtitles": [
+      { "from": 189.58, "to": 193.8, "en": "And as you're working out and you're running and you go up the steps and", "pl": "A kiedy ćwiczysz, biegasz i wbiegasz po schodach," },
+      { "from": 193.8, "to": 195.54, "en": "you're out of breath the first time,", "pl": "i za pierwszym razem brakuje ci tchu," },
+      { "from": 195.54, "to": 197.4, "en": "she goes, my daughter goes, look,", "pl": "ona mówi, moja córka mówi: patrz," },
+      { "from": 197.4, "to": 198.6, "en": "he's got nothing going on.", "pl": "nic mu nie wychodzi." },
+      { "from": 198.6, "to": 199.68, "en": "She goes, look, he's out of breath.", "pl": "Mówi: patrz, brakuje mu tchu." },
+      { "from": 199.68, "to": 200.84, "en": "He can't even make it up the steps.", "pl": "Nie potrafi nawet wejść po schodach." },
+      { "from": 200.84, "to": 202.1, "en": "And I'm like, ooh,", "pl": "A ja na to: ooo," },
+      { "from": 202.1, "to": 203.62, "en": "yeah.", "pl": "tak." },
+      { "from": 203.62, "to": 205.36, "en": "You're falling right into the trap.", "pl": "Wpadasz prosto w pułapkę." },
+      { "from": 205.36, "to": 207.48, "en": "I can't wait till it pays off at the end.", "pl": "Nie mogę się doczekać, aż to się opłaci na końcu." }
+    ],
+    "quiz": [
+      {
+        "type": "single_choice",
+        "question": "Co córka mówiącego zauważyła na początku filmu, który oglądała?",
+        "options": ["Że bohater jest bez tchu i nie potrafi wejść po schodach", "Że bohater szybko wbiega po schodach", "Że bohater odmawia treningu"],
+        "correct": 0,
+        "explanation": "Córka mówi: „he's out of breath” i „He can't even make it up the steps”."
+      },
+      {
+        "type": "single_choice",
+        "question": "Uzupełnij zdanie: „You're falling right into the ___.”",
+        "options": ["trap", "water", "room"],
+        "correct": 0,
+        "explanation": "Mówiący stwierdza: „You're falling right into the trap”."
+      },
+      {
+        "type": "true_false",
+        "question": "Prawda czy fałsz: Mówiący nie może się doczekać, aż wysiłek bohatera opłaci się na końcu.",
+        "options": ["Prawda", "Fałsz"],
+        "correct": 0,
+        "explanation": "Mówi: „I can't wait till it pays off at the end”."
+      },
+      {
+        "type": "single_choice",
+        "question": "Co oznacza wyrażenie „out of breath”?",
+        "options": ["bez tchu, zadyszany", "w świetnej formie", "bardzo głodny"],
+        "correct": 0,
+        "explanation": "„Out of breath” oznacza brak tchu po wysiłku, np. po wbieganiu po schodach."
+      },
+      {
+        "type": "true_false",
+        "question": "Prawda czy fałsz: Córka uważa, że bohater radzi sobie świetnie.",
+        "options": ["Prawda", "Fałsz"],
+        "correct": 1,
+        "explanation": "Córka mówi: „he's got nothing going on”, czyli uważa, że mu nie idzie."
+      }
+    ]
+  },
+  {
+    "id": "clip-0009",
+    "videoId": "PKygRju86oI",
+    "start": 151.96,
+    "end": 167.34,
+    "aspect": "16:9",
+    "level": "B2",
+    "title": "Anne Hathaway Addresses Her Viral Mom-Mode Verity Red Carpet Moment | The Tonight Show",
+    "channel": "The Tonight Show Starring Jimmy Fallon",
+    "phrases": [
+      { "en": "dry-heave in public", "pl": "mieć odruchy wymiotne publicznie" },
+      { "en": "waddle in public", "pl": "chodzić kołysząc się jak kaczka" },
+      { "en": "first trimester", "pl": "pierwszy trymestr" },
+      { "en": "my goal is to", "pl": "moim celem jest" },
+      { "en": "keep it up", "pl": "tak trzymaj" }
+    ],
+    "subtitles": [
+      { "from": 151.96, "to": 153.88, "en": "Hi-ho!", "pl": "Hej-ho!" },
+      { "from": 153.88, "to": 155.24, "en": "Thank you for coming, ho!", "pl": "Dzięki, że przyszliście, ho!" },
+      { "from": 155.24, "to": 157.26, "en": "So, first trimester, my goal was to not,", "pl": "Więc w pierwszym trymestrze moim celem było, no wiesz," },
+      { "from": 157.26, "to": 159.02, "en": "like, dry-heave in public. Good.", "pl": "nie dławić się wymiotami publicznie. I git." },
+      { "from": 159.02, "to": 161.66, "en": "And at third trimester, my goal is to not waddle in public.", "pl": "A w trzecim trymestrze moim celem jest nie kołysać się jak kaczka publicznie." },
+      { "from": 161.66, "to": 162.92, "en": "So, I feel like that's a good thing.", "pl": "Więc czuję, że to całkiem dobry plan." },
+      { "from": 162.92, "to": 163.86, "en": "No, you're allowed to do it.", "pl": "Nie, wolno ci to robić." },
+      { "from": 163.86, "to": 164.7, "en": "You're doing it great.", "pl": "Świetnie ci idzie." },
+      { "from": 164.7, "to": 166.0, "en": "Whatever you're doing, keep it up.", "pl": "Cokolwiek robisz, rób tak dalej." },
+      { "from": 166.0, "to": 167.34, "en": "It's fantastic. Thank you.", "pl": "Fantastycznie. Dziękuję." }
+    ],
+    "quiz": [
+      {
+        "type": "single_choice",
+        "question": "Jaki cel miała mówczyni w pierwszym trymestrze?",
+        "options": ["Nie mieć odruchów wymiotnych publicznie", "Nie chodzić kołysząc się publicznie", "Nie przychodzić na występy"],
+        "correct": 0,
+        "explanation": "Mówi: „my goal was to not, like, dry-heave in public”, czyli uniknąć odruchów wymiotnych publicznie."
+      },
+      {
+        "type": "single_choice",
+        "question": "Uzupełnij zdanie: „Whatever you're doing, keep it ___.”",
+        "options": ["up", "off", "away"],
+        "correct": 0,
+        "explanation": "Całe zdanie brzmi „Whatever you're doing, keep it up”, czyli „rób tak dalej”."
+      },
+      {
+        "type": "true_false",
+        "question": "Prawda czy fałsz: W trzecim trymestrze mówczyni chce nie chodzić kołysząc się publicznie.",
+        "options": ["Prawda", "Fałsz"],
+        "correct": 0,
+        "explanation": "Mówi: „at third trimester, my goal is to not waddle in public”."
+      },
+      {
+        "type": "single_choice",
+        "question": "Co oznacza wyrażenie „keep it up” w tym kontekście?",
+        "options": ["Tak trzymaj", "Podnieś to", "Przestań to robić"],
+        "correct": 0,
+        "explanation": "Po „You're doing it great” pada „keep it up”, czyli zachęta do dalszego robienia tego samego."
+      },
+      {
+        "type": "true_false",
+        "question": "Prawda czy fałsz: Druga osoba mówi, że mówczyni nie wolno „waddle in public”.",
+        "options": ["Prawda", "Fałsz"],
+        "correct": 1,
+        "explanation": "Odpowiada: „No, you're allowed to do it. You're doing it great.”, więc wolno jej to robić."
+      }
+    ]
   }
 ]
