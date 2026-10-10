@@ -24,6 +24,7 @@ Wszystkie klipy są w `src/data/clips.json`. Dopisz do tablicy nowy obiekt:
   "start": 42,
   "end": 58,
   "aspect": "16:9",
+  "level": "B1",
   "title": "Tytuł filmu",
   "channel": "Nazwa kanału",
   "phrases": [
@@ -51,12 +52,13 @@ Zasady:
 - `start` i `end` to sekundy liczone od początku filmu.
 - `from` i `to` w napisach też są liczone od początku filmu, nie od `start`.
 - `aspect` to `"16:9"` albo `"9:16"` (Shorts).
+- `level` to poziom angielskiego w skali CEFR: `"A1"`, `"A2"`, `"B1"`, `"B2"`, `"C1"` albo `"C2"`.
 - `phrases` jest opcjonalne. Wszystkie zwroty trafiają do podsumowania quizu. Zwrot, który występuje w linii napisów, jest w niej podświetlany.
 - `type` to `"single_choice"` albo `"true_false"`. Pytanie `true_false` ma odpowiedzi `["Prawda", "Fałsz"]` w tej kolejności.
 - `correct` to indeks poprawnej odpowiedzi, liczony od 0.
 - Klip ma 5 pytań. Aplikacja losuje z nich 3 na każde podejście i miesza kolejność odpowiedzi (poza `true_false`).
 
-Pełny opis tego, co musi zawierać klip, jest w `clip-generator/CLAUDE.md`.
+Pełny opis tego, co musi zawierać klip, jest w `../enlinadotokClipGenerator/CLAUDE.md`.
 
 Przed dodaniem sprawdź, czy film da się osadzić: otwórz `https://www.youtube.com/embed/<videoId>`. Jeśli właściciel wyłączył osadzanie, aplikacja pokaże komunikat z linkiem do oryginału zamiast odtwarzacza.
 

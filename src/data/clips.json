@@ -5,6 +5,7 @@
     "start": 106.12,
     "end": 123,
     "aspect": "16:9",
+    "level": "C1",
     "title": "Sleep Is Your Superpower | Matt Walker | TED",
     "channel": "TED",
     "phrases": [
@@ -67,6 +68,7 @@
     "start": 351.08,
     "end": 367.08,
     "aspect": "16:9",
+    "level": "B1",
     "title": "Anne Hathaway Forgets The Princess Diaries and The Devil Wears Prada Details, Chats The Idea of You",
     "channel": "The Tonight Show Starring Jimmy Fallon",
     "phrases": [
@@ -129,6 +131,7 @@
     "start": 92.78,
     "end": 112.82,
     "aspect": "16:9",
+    "level": "B2",
     "title": "Reese's recipe debate heats up",
     "channel": "Good Morning America",
     "phrases": [
@@ -192,6 +195,7 @@
     "start": 536,
     "end": 556.5,
     "aspect": "16:9",
+    "level": "B1",
     "title": "Dakota Johnson Talks Billie Eilish Prank and Pedro Pascal Stealing Her Clothes, Plays Fast Forward",
     "channel": "The Tonight Show Starring Jimmy Fallon",
     "phrases": [

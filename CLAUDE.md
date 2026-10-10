@@ -74,7 +74,7 @@ Everything lives in `src/data/clips.json`. The schema is `src/types/Clip.ts`; th
 - Each clip has 5 quiz questions. Every question has a `type`: `single_choice` or `true_false`.
 - A quiz attempt draws 3 random questions (`QUESTIONS_PER_ATTEMPT` in `src/quiz/drawQuizQuestions.ts`) and shuffles the options of `single_choice` questions. `true_false` keeps its order. The draw happens once per `QuizPanel` mount, so "Obejrzyj ponownie" redraws.
 - The score key uses the question's index in `clips.json`, not its position in the attempt, so reordering questions in the file changes which ones count as already answered.
-- `clip-generator/CLAUDE.md` is the spec for what a generated clip must contain. Keep it in sync with `src/types/` when the schema changes.
+- `../enlinadotokClipGenerator/CLAUDE.md` (a sibling folder, outside this repository) is the spec for what a generated clip must contain. Keep it in sync with `src/types/` when the schema changes.
 
 The current content was derived from an older generator project at `C:\Users\radek.dev\Documents\enlinadotok generator`: fragment times and questions from `processed_videos/*_quiz.txt`, line timings from the Whisper word timestamps in `raw_videos/*_words.txt`. The `.mp4` files there must never be used by this app.
 
