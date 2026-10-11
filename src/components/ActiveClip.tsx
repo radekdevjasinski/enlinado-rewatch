@@ -16,6 +16,7 @@ import { PhaseStepper } from './PhaseStepper';
 import { getPlayerFrameClassName } from './playerFrameClassName';
 import { PlaybackControls } from './PlaybackControls';
 import { PlayerError } from './PlayerError';
+import { PlayerLoadingNotice } from './PlayerLoadingNotice';
 import { QuizPanel } from './QuizPanel';
 import { QuizSheet } from './QuizSheet';
 import { SourceMeta } from './SourceMeta';
@@ -41,6 +42,8 @@ export function ActiveClip(props: ActiveClipProps) {
   const feedback = useClipFeedback(clip.id);
   const { status, currentTime } = player;
   const hasError = status === 'error';
+  const isPlayerLoading = status === 'loading' || status === 'starting';
+  const isPlayerPlayable = !hasError && !isPlayerLoading;
   const isQuizOpen = phase === 'quiz';
   const phrases = clip.phrases ?? [];
   const activeLineIndex = findCurrentLineIndex(clip.subtitles, currentTime);
@@ -101,8 +104,9 @@ export function ActiveClip(props: ActiveClipProps) {
     <>
       <div className={isQuizOpen ? 'player-area player-area--quiz' : 'player-area'}>
         <div ref={player.hostRef} className={getPlayerFrameClassName(clip.aspect)} />
-        {!hasError && phase === 'listening' && <ListeningPrompt onShowSubtitles={showSubtitles} />}
-        {!hasError && phase !== 'listening' && (
+        {isPlayerLoading && <PlayerLoadingNotice />}
+        {isPlayerPlayable && phase === 'listening' && <ListeningPrompt onShowSubtitles={showSubtitles} />}
+        {isPlayerPlayable && phase !== 'listening' && (
           <SubtitleBox
             line={clip.subtitles[activeLineIndex]}
             phrases={phrases}

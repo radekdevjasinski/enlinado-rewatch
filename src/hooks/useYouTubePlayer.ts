@@ -6,9 +6,14 @@ import { disablePlayerCaptions } from '../youtube/disablePlayerCaptions';
 import { loadYouTubeApi } from '../youtube/loadYouTubeApi';
 import { useCurrentTime } from './useCurrentTime';
 
+function isWaitingForFirstFrame(playerState: YT.PlayerState): boolean {
+  return playerState === YT.PlayerState.UNSTARTED || playerState === YT.PlayerState.BUFFERING;
+}
+
 function resolveStatus(previous: PlayerStatus, playerState: YT.PlayerState): PlayerStatus {
   if (playerState === YT.PlayerState.PLAYING) return 'playing';
   if (playerState === YT.PlayerState.ENDED) return 'ended';
+  if (isWaitingForFirstFrame(playerState) && previous === 'ready') return 'starting';
   if (playerState === YT.PlayerState.PAUSED && previous === 'playing') return 'paused';
   return previous;
 }
