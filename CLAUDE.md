@@ -28,11 +28,11 @@ src/
   types/                   one type per file (Clip, SubtitleLine, QuizQuestion, Phrase, ...)
   youtube/                 IFrame API loader, player factory, URL builders
   hooks/                   useYouTubePlayer, useCurrentTime, useActiveClipIndex,
-                           useArrowNavigation, useScore
+                           useArrowNavigation, useScore, useClipFeedback
   subtitles/               pure helpers: current line, phrase matching
   quiz/                    pure helpers: draw questions for an attempt, shuffle options
   random/                  shuffle
-  profile/                 placeholder level, streak and avatar values
+  profile/                 placeholder streak and avatar values
   components/              one component per file
 .github/workflows/deploy.yml
 ```
@@ -44,9 +44,14 @@ How the pieces fit:
 - Only the active card mounts `ActiveClip`, which owns the YouTube player. Other cards show a thumbnail. Leaving a card unmounts the player, which stops playback.
 - `useYouTubePlayer` creates the player, maps its events to a `PlayerStatus`, and stops playback at `clip.end`. `useCurrentTime` polls `getCurrentTime()` every 200 ms while playing.
 - `ActiveClip` walks each clip through three phases (`ClipPhase`): `listening` (`ListeningPrompt` instead of the subtitle box, transcript blurred and inert), `reading` (subtitles and transcript) and `quiz`. The end of the fragment in `listening` replays it in `reading`; the end in `reading` opens the quiz. `PhaseStepper` lets the user jump to any phase.
-- `.fragment-controls` sits under the player: `FragmentTimeline` (one clickable segment per subtitle line, width proportional to its duration) and `PlaybackControls` (time, previous line, play/pause, next line). Next on the last line calls `finish()`.
+- `.player-area` stacks the player, then the subtitle box (`ListeningPrompt` in `listening`), then `.fragment-controls`; the source row with the channel name and the link to the original comes after that, in `.clip-info`. `.fragment-controls` holds `FragmentTimeline` (one clickable segment per subtitle line, width proportional to its duration) and `PlaybackControls` (time, previous line, play/pause, next line). Next on the last line calls `finish()`.
 - `.clip-side` wraps the stepper, `ClipStudy` and `QuizSheet`. On phones it is `display: contents`, so the sheet still positions against `.clip-body`; from 1024px it is the right-hand card with the stepper as its header. `ClipNavigation` is a pill next to the channel name, desktop only.
-- `src/profile/placeholderProfile.ts` feeds the parts of the design that do not work yet: `LevelBadge` (phone header), `StreakLabel` and `ProfileAvatar` (desktop header) and the streak in `QuizSummary`. The values are neutral placeholders, not real data.
+- The clip's CEFR level comes from `clip.level`. `LevelChip` shows it with its Polish name in front of the channel badge, on phones and desktop, on active and inactive cards. It is not in the header, where it read as an account setting.
+- The channel name is a badge (`.channel-badge` in `SourceMeta`) that links to the original at `start`. There is no separate "Oryginał na YouTube" link (Radek's decision, 2026-10-11).
+- Below 1024px the open quiz hides the subtitle box and `.fragment-controls` (`.player-area--quiz`), because the sheet may not cover the player and would otherwise be left with almost no height in a short window.
+- The header shows the same items at every width: logo, `StreakLabel`, `ScoreBadge` and `ProfileAvatar`.
+- `ClipFeedbackBar` (like, dislike, report) sits in the source row of the active card. `useClipFeedback` keeps the vote and the reported flag in `localStorage` under `enlinadotok.clipFeedback`, keyed by clip id. There are no counters and nothing is sent anywhere: `ReportDialog` only marks the clip as reported and `ClipReport` shows a thank-you toast. The dialog and the toast render inside `.clip-side`, so they cover the area below the player on phones and the right-hand card on desktop, never the player.
+- `src/profile/placeholderProfile.ts` feeds the parts of the design that do not work yet: `StreakLabel` and `ProfileAvatar` (header) and the streak in `QuizSummary`. The values are neutral placeholders, not real data.
 - `ClipStudy` (transcript, quiz button) and `QuizSheet` (quiz and summary) sit below the player. On phones the sheet slides up from the bottom; from 1024px they share the right-hand grid column.
 - `useScore` keeps the set of correctly answered questions in `localStorage` under `enlinadotok.correctAnswers`, keyed as `<clipId>:<questionIndex>`.
 
@@ -85,11 +90,14 @@ The look follows the "Enlinadotok v3" project file on claude.ai/design (project 
 - No pause icon, level badge or progress bar on the player; the quiz sheet stops below the player.
 - 9:16 clips are not full screen with subtitles over the video.
 - The feed scrolls between clips; the design switched clips with buttons.
-- Level, streak and avatar are shown as non-working placeholders (Radek's decision, 2026-10-08), because there is no data or account for them yet.
+- Streak and avatar are shown as non-working placeholders (Radek's decision, 2026-10-08), because there is no data or account for them yet.
+- Like, dislike and report have no counters and no backend (Radek's decision, 2026-10-11). On 9:16 clips they use the same pill as 16:9 clips instead of a rail drawn over the video, and the report dialog does not cover the player.
+- Subtitles sit between the player and the playback controls, not below the controls (Radek's decision, 2026-10-11).
 - The level badge is never drawn on the player, and the active card still has no title of its own.
 
 ## Things that bite
 
+- `useArrowNavigation` listens on `window` and calls `preventDefault` on the up and down arrows. `ReportDialog` stops key events from bubbling so the arrows can move between its radio buttons instead of scrolling the feed.
 - In the desktop grid, `.clip-study` and `.quiz-sheet` share one cell. The transcript list is positioned, so the sheet needs its own `position` and `z-index` or the transcript paints through it.
 - After `seekTo`, the polled time can briefly still be the old value. `hasEnteredFragmentRef` in `useYouTubePlayer` prevents that stale value from ending the fragment immediately. Reset it whenever you seek.
 - `useYouTubePlayer` reads `shouldAutoplay` once through a ref on purpose. Putting it in the effect dependencies would recreate the player when the first clip starts.

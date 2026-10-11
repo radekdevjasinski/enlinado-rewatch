@@ -1,5 +1,6 @@
 import type { Clip } from '../types/Clip';
 import { buildWatchUrl } from '../youtube/buildWatchUrl';
+import { LevelChip } from './LevelChip';
 
 interface SourceMetaProps {
   clip: Clip;
@@ -8,9 +9,15 @@ interface SourceMetaProps {
 export function SourceMeta({ clip }: SourceMetaProps) {
   return (
     <p className="source-info__meta">
-      <span>{clip.channel}</span>
-      <a href={buildWatchUrl(clip)} target="_blank" rel="noopener">
-        Oryginał na YouTube ↗
+      <LevelChip level={clip.level} />
+      <a
+        className="channel-badge"
+        href={buildWatchUrl(clip)}
+        target="_blank"
+        rel="noopener"
+        title="Otwórz oryginał na YouTube"
+      >
+        {clip.channel} ↗
       </a>
     </p>
   );

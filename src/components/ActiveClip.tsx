@@ -1,10 +1,13 @@
 import { useEffect, useEffectEvent, useState } from 'react';
+import { useClipFeedback } from '../hooks/useClipFeedback';
 import { useYouTubePlayer } from '../hooks/useYouTubePlayer';
 import { countAttemptQuestions } from '../quiz/drawQuizQuestions';
 import { findCurrentLineIndex } from '../subtitles/findCurrentLineIndex';
 import type { Clip } from '../types/Clip';
 import type { ClipPhase } from '../types/ClipPhase';
+import { ClipFeedbackBar } from './ClipFeedbackBar';
 import { ClipNavigation } from './ClipNavigation';
+import { ClipReport } from './ClipReport';
 import { ClipStudy } from './ClipStudy';
 import { formatQuestionCount } from './formatQuestionCount';
 import { FragmentTimeline } from './FragmentTimeline';
@@ -34,6 +37,8 @@ export function ActiveClip(props: ActiveClipProps) {
   const player = useYouTubePlayer(clip, props.shouldAutoplay);
   const [phase, setPhase] = useState<ClipPhase>('listening');
   const [quizAttempt, setQuizAttempt] = useState(0);
+  const [isReportOpen, setIsReportOpen] = useState(false);
+  const feedback = useClipFeedback(clip.id);
   const { status, currentTime } = player;
   const hasError = status === 'error';
   const isQuizOpen = phase === 'quiz';
@@ -45,6 +50,10 @@ export function ActiveClip(props: ActiveClipProps) {
     setPhase('quiz');
   };
   const showSubtitles = () => setPhase('reading');
+  const openReport = () => {
+    player.pause();
+    setIsReportOpen(true);
+  };
   const restartWithoutSubtitles = () => {
     setPhase('listening');
     player.replay();
@@ -90,8 +99,16 @@ export function ActiveClip(props: ActiveClipProps) {
 
   return (
     <>
-      <div className="player-area">
+      <div className={isQuizOpen ? 'player-area player-area--quiz' : 'player-area'}>
         <div ref={player.hostRef} className={getPlayerFrameClassName(clip.aspect)} />
+        {!hasError && phase === 'listening' && <ListeningPrompt onShowSubtitles={showSubtitles} />}
+        {!hasError && phase !== 'listening' && (
+          <SubtitleBox
+            line={clip.subtitles[activeLineIndex]}
+            phrases={phrases}
+            isTranslationVisible={props.isTranslationVisible}
+          />
+        )}
         {!hasError && (
           <div className="fragment-controls">
             <FragmentTimeline
@@ -116,58 +133,64 @@ export function ActiveClip(props: ActiveClipProps) {
       </div>
       <div className="clip-body">
         <div className="clip-info">
-          {!hasError && phase === 'listening' && <ListeningPrompt onShowSubtitles={showSubtitles} />}
-          {!hasError && phase !== 'listening' && (
-            <SubtitleBox
-              line={clip.subtitles[activeLineIndex]}
-              phrases={phrases}
-              isTranslationVisible={props.isTranslationVisible}
-            />
-          )}
           <div className="source-row">
             <div className="source-info">
               <SourceMeta clip={clip} />
             </div>
-            <ClipNavigation onPrevious={props.onPrevious} onNext={onNext} />
+            <div className="source-row__actions">
+              <ClipFeedbackBar
+                vote={feedback.vote}
+                isReported={feedback.isReported}
+                onVote={feedback.toggleVote}
+                onOpenReport={openReport}
+              />
+              <ClipNavigation onPrevious={props.onPrevious} onNext={onNext} />
+            </div>
           </div>
         </div>
-        {hasError && (
-          <div className="clip-side">
+        <div className="clip-side">
+          {hasError && (
             <div className="clip-study">
               <PlayerError clip={clip} errorCode={player.errorCode} onNext={onNext} />
             </div>
-          </div>
-        )}
-        {!hasError && (
-          <div className="clip-side">
-            <PhaseStepper currentPhase={phase} onSelect={selectPhase} />
-            <ClipStudy
-              clip={clip}
-              activeLineIndex={activeLineIndex}
-              isHidden={isQuizOpen}
-              isTranscriptConcealed={phase === 'listening'}
-              isTranslationVisible={props.isTranslationVisible}
-              onToggleTranslation={props.onToggleTranslation}
-              onSeek={player.seekTo}
-              onOpenQuiz={openQuiz}
-            />
-            <QuizSheet
-              isOpen={isQuizOpen}
-              label={`Quiz · ${formatQuestionCount(countAttemptQuestions(clip.quiz))}`}
-              onOpen={openQuiz}
-              onClose={showSubtitles}
-            >
-              <QuizPanel
-                key={quizAttempt}
-                questions={clip.quiz}
-                phrases={phrases}
-                onCorrectAnswer={(questionIndex) => props.onCorrectAnswer(`${clip.id}:${questionIndex}`)}
-                onReplay={replay}
-                onNext={onNext}
+          )}
+          {!hasError && (
+            <>
+              <PhaseStepper currentPhase={phase} onSelect={selectPhase} />
+              <ClipStudy
+                clip={clip}
+                activeLineIndex={activeLineIndex}
+                isHidden={isQuizOpen}
+                isTranscriptConcealed={phase === 'listening'}
+                isTranslationVisible={props.isTranslationVisible}
+                onToggleTranslation={props.onToggleTranslation}
+                onSeek={player.seekTo}
+                onOpenQuiz={openQuiz}
               />
-            </QuizSheet>
-          </div>
-        )}
+              <QuizSheet
+                isOpen={isQuizOpen}
+                label={`Quiz · ${formatQuestionCount(countAttemptQuestions(clip.quiz))}`}
+                onOpen={openQuiz}
+                onClose={showSubtitles}
+              >
+                <QuizPanel
+                  key={quizAttempt}
+                  questions={clip.quiz}
+                  phrases={phrases}
+                  onCorrectAnswer={(questionIndex) => props.onCorrectAnswer(`${clip.id}:${questionIndex}`)}
+                  onReplay={replay}
+                  onNext={onNext}
+                />
+              </QuizSheet>
+            </>
+          )}
+          <ClipReport
+            clipTitle={clip.title}
+            isOpen={isReportOpen}
+            onClose={() => setIsReportOpen(false)}
+            onReported={feedback.markReported}
+          />
+        </div>
       </div>
     </>
   );
