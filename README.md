@@ -1,32 +1,36 @@
 # Enlinadotok
 
-Prototyp aplikacji do nauki angielskiego: pionowy feed krótkich fragmentów filmów z YouTube'a z napisami i quizem po każdym klipie. Vite + React + TypeScript, bez backendu.
+Prototype of an app for learning English: a vertical feed of short YouTube fragments with subtitles and a quiz after each clip. Vite, React and TypeScript, no backend.
 
-Filmy są odtwarzane wyłącznie przez oficjalny YouTube IFrame Player API. Aplikacja niczego nie pobiera ani nie hostuje.
+Videos play only through the official YouTube IFrame Player API. The app downloads and hosts nothing.
 
-## Uruchomienie lokalne
+## Run it
 
 ```
 npm install
 npm run dev
 ```
 
-Produkcyjny build: `npm run build` (wynik w `dist/`), podgląd: `npm run preview`.
+`npm run build` checks the types and writes the production build to `dist/`. `npm run preview` serves that build.
 
-## Dodawanie nowego klipu
+## Clips
 
-Wszystkie klipy są w `src/data/clips.json`. Dopisz do tablicy nowy obiekt:
+All clips are in `src/data/clips.json`. Most come from the generator in `../enlinadotokClipGenerator`, whose `publish` command appends to this file. The full description of a clip is in `../enlinadotokClipGenerator/CLAUDE.md`, and the types in `src/types/` are the final word.
+
+After the file changes, run `npm run build`, watch the new clips with `npm run dev` and commit `clips.json`.
+
+To add a clip by hand, append an object like this:
 
 ```json
 {
-  "id": "clip-08",
+  "id": "clip-0120",
   "videoId": "dQw4w9WgXcQ",
   "start": 42,
   "end": 58,
   "aspect": "16:9",
   "level": "B1",
-  "title": "Tytuł filmu",
-  "channel": "Nazwa kanału",
+  "title": "Video title",
+  "channel": "Channel name",
   "phrases": [
     { "en": "English phrase", "pl": "polskie znaczenie" }
   ],
@@ -36,7 +40,7 @@ Wszystkie klipy są w `src/data/clips.json`. Dopisz do tablicy nowy obiekt:
   "quiz": [
     {
       "type": "single_choice",
-      "question": "Pytanie po polsku lub angielsku",
+      "question": "Pytanie po polsku",
       "options": ["Odpowiedź A", "Odpowiedź B", "Odpowiedź C"],
       "correct": 0,
       "explanation": "Krótkie wyjaśnienie po polsku"
@@ -45,43 +49,20 @@ Wszystkie klipy są w `src/data/clips.json`. Dopisz do tablicy nowy obiekt:
 }
 ```
 
-Zasady:
+- `id` is unique and never reused, also after a clip is deleted: the score in `localStorage` is saved under it.
+- One clip per video: `videoId` (the part of the address after `watch?v=`) appears once in the file.
+- `start`, `end`, `from` and `to` are seconds from the start of the video and may be fractional. YouTube starts at the whole second below `start`; the app enforces the exact end.
+- `aspect` is `"16:9"` or `"9:16"`. `level` is a CEFR level from `"A1"` to `"C2"`.
+- `phrases` is optional. Every phrase goes to the quiz summary and is highlighted in the subtitle line that contains it.
+- A clip has 5 questions. The app draws 3 per attempt and shuffles the options.
+- `type` is `"single_choice"` or `"true_false"`. A `true_false` question has the options `["Prawda", "Fałsz"]` in that order, and they are not shuffled.
+- `correct` is the index of the right option, counted from 0.
+- Unknown data is marked `[DO UZUPEŁNIENIA]`.
 
-- `id` musi być unikalne. Służy też jako klucz licznika poprawnych odpowiedzi w `localStorage`.
-- `videoId` to fragment adresu po `watch?v=`.
-- `start` i `end` to sekundy liczone od początku filmu.
-- `from` i `to` w napisach też są liczone od początku filmu, nie od `start`.
-- `aspect` to `"16:9"` albo `"9:16"` (Shorts).
-- `level` to poziom angielskiego w skali CEFR: `"A1"`, `"A2"`, `"B1"`, `"B2"`, `"C1"` albo `"C2"`.
-- `phrases` jest opcjonalne. Wszystkie zwroty trafiają do podsumowania quizu. Zwrot, który występuje w linii napisów, jest w niej podświetlany.
-- `type` to `"single_choice"` albo `"true_false"`. Pytanie `true_false` ma odpowiedzi `["Prawda", "Fałsz"]` w tej kolejności.
-- `correct` to indeks poprawnej odpowiedzi, liczony od 0.
-- Klip ma 5 pytań. Aplikacja losuje z nich 3 na każde podejście i miesza kolejność odpowiedzi (poza `true_false`).
+Check that the video can be embedded: open `https://www.youtube.com/embed/<videoId>`. When the owner has turned embedding off, the app shows a link to the original instead of the player.
 
-Pełny opis tego, co musi zawierać klip, jest w `../enlinadotokClipGenerator/CLAUDE.md`.
+## Deployment
 
-Przed dodaniem sprawdź, czy film da się osadzić: otwórz `https://www.youtube.com/embed/<videoId>`. Jeśli właściciel wyłączył osadzanie, aplikacja pokaże komunikat z linkiem do oryginału zamiast odtwarzacza.
+The workflow `.github/workflows/deploy.yml` publishes the site to GitHub Pages on every push to `main`. It sets Vite's `base` path from the repository name (`BASE_PATH`), so renaming the repository needs no code change.
 
-### Pola do uzupełnienia
-
-Brakujące dane są oznaczone w `clips.json` tekstem `[DO UZUPEŁNIENIA]`. Obecnie żaden klip nie ma takich pól.
-
-`start` i `end` mogą być ułamkowe (np. `106.12`). Odtwarzacz YouTube przyjmuje tylko pełne sekundy, więc film startuje od sekundy zaokrąglonej w dół, a dokładny koniec fragmentu pilnuje aplikacja.
-
-## Wdrożenie
-
-Strona jest publikowana na GitHub Pages przez workflow `.github/workflows/deploy.yml` po każdym pushu na `main`. Ścieżka `base` dla Vite jest ustawiana w workflow z nazwy repozytorium (zmienna `BASE_PATH`), więc zmiana nazwy repo nie wymaga zmian w kodzie.
-
-Ponowne wdrożenie po zmianie klipów:
-
-```
-git checkout -b feature/nowy-klip
-npm run build
-git add src/data/clips.json
-git commit -m "feat: add new clip"
-git push -u origin feature/nowy-klip
-```
-
-Potem otwórz pull request do `main` i go scal. Po scaleniu zakładka Actions na GitHubie pokaże postęp, a strona odświeży się po około minucie.
-
-Jednorazowa konfiguracja repozytorium: Settings → Pages → Source: **GitHub Actions**.
+One-time setup on GitHub: create the repository, push `main`, then Settings → Pages → Source: **GitHub Actions**.

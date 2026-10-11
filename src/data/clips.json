@@ -2827,66 +2827,6 @@
     ]
   },
   {
-    "id": "clip-0078",
-    "videoId": "-9BZccm90D8",
-    "start": 174.81,
-    "end": 190.39,
-    "aspect": "16:9",
-    "level": "B2",
-    "title": "Exploring Regenerative Farming Practices at Waitrose Farms | National Geographic",
-    "channel": "National Geographic",
-    "phrases": [
-      { "en": "fits back into the system", "pl": "wpisuje się z powrotem w system" },
-      { "en": "exists in isolation", "pl": "istnieje w oderwaniu" },
-      { "en": "ends up on our plates", "pl": "ląduje na naszych talerzach" },
-      { "en": "the choices we make", "pl": "wybory, których dokonujemy" },
-      { "en": "shape it", "pl": "kształtują to" }
-    ],
-    "subtitles": [
-      { "from": 174.81, "to": 179.13, "en": "And everything the bees produce fits back into the system.", "pl": "A wszystko, co produkują pszczoły, wraca do systemu." },
-      { "from": 179.13, "to": 182.23, "en": "Nothing here exists in isolation.", "pl": "Nic tutaj nie istnieje w oderwaniu od reszty." },
-      { "from": 182.23, "to": 187.05, "en": "What happens on the farm ends up on our plates and", "pl": "To, co dzieje się na farmie, trafia na nasze talerze," },
-      { "from": 187.05, "to": 190.39, "en": "the choices we make as consumers shape it.", "pl": "a wybory, których dokonujemy jako konsumenci, mają na to wpływ." }
-    ],
-    "quiz": [
-      {
-        "type": "single_choice",
-        "question": "Co według mówiącego dzieje się z tym, co produkują pszczoły?",
-        "options": ["Wraca do systemu", "Jest sprzedawane za granicę", "Jest wyrzucane"],
-        "correct": 0,
-        "explanation": "Mówiący twierdzi: „everything the bees produce fits back into the system”, czyli wszystko wraca do systemu."
-      },
-      {
-        "type": "single_choice",
-        "question": "Uzupełnij zdanie: „What happens on the farm ends up on our ___ and the choices we make as consumers shape it.”",
-        "options": ["plates", "fields", "tables"],
-        "correct": 0,
-        "explanation": "W nagraniu słychać: „ends up on our plates”, czyli trafia na nasze talerze."
-      },
-      {
-        "type": "true_false",
-        "question": "Prawda czy fałsz: Mówiący twierdzi, że na farmie wszystko istnieje niezależnie od reszty.",
-        "options": ["Prawda", "Fałsz"],
-        "correct": 1,
-        "explanation": "Mówiący mówi coś odwrotnego: „Nothing here exists in isolation”, czyli nic nie istnieje w oderwaniu."
-      },
-      {
-        "type": "single_choice",
-        "question": "Co oznacza wyrażenie „ends up on our plates”?",
-        "options": ["Ląduje na naszych talerzach", "Zostaje na farmie", "Jest drogie w sklepach"],
-        "correct": 0,
-        "explanation": "„Ends up” oznacza „kończy się czymś, trafia gdzieś”, więc „ends up on our plates” to trafia na nasze talerze."
-      },
-      {
-        "type": "single_choice",
-        "question": "Co według mówiącego kształtuje to, co dzieje się na farmie?",
-        "options": ["Pogoda w danym roku", "Wybory konsumentów", "Praca pszczół"],
-        "correct": 1,
-        "explanation": "Mówiący stwierdza: „the choices we make as consumers shape it”, czyli wybory konsumentów mają wpływ."
-      }
-    ]
-  },
-  {
     "id": "clip-0079",
     "videoId": "N2uQWfV6Jr4",
     "start": 152.92,
@@ -2944,67 +2884,6 @@
         "options": ["Czas w ciągu dnia", "Uwaga", "Wybór zadań"],
         "correct": 1,
         "explanation": "Badacze uważają, że „attention is a limited” zasób, więc ograniczona jest uwaga."
-      }
-    ]
-  },
-  {
-    "id": "clip-0080",
-    "videoId": "2EtZHm-gs5o",
-    "start": 534.17,
-    "end": 555.55,
-    "aspect": "16:9",
-    "level": "B1",
-    "title": "I finally outgrew the character that made my career | Jaleel White",
-    "channel": "Big Think",
-    "phrases": [
-      { "en": "goes up fast", "pl": "szybko rośnie" },
-      { "en": "comes down faster", "pl": "spada szybciej" },
-      { "en": "built slowly over time", "pl": "budowane powoli z czasem" },
-      { "en": "a better chance of", "pl": "większa szansa na" },
-      { "en": "was impatient", "pl": "był niecierpliwy" }
-    ],
-    "subtitles": [
-      { "from": 534.17, "to": 537.97, "en": "Old Jaleel was impatient.", "pl": "Dawny Jaleel był niecierpliwy." },
-      { "from": 537.97, "to": 543.08, "en": "The new Jaleel understands that what", "pl": "Nowy Jaleel rozumie, że to, co szybko idzie w górę," },
-      { "from": 543.08, "to": 547.81, "en": "goes up fast comes down faster.", "pl": "jeszcze szybciej spada." },
-      { "from": 547.81, "to": 553.41, "en": "What's built slowly over time has", "pl": "To, co buduje się powoli, przez długi czas," },
-      { "from": 553.41, "to": 555.55, "en": "a better chance of being indestructible.", "pl": "ma większe szanse, by stać się niezniszczalnym." }
-    ],
-    "quiz": [
-      {
-        "type": "single_choice",
-        "question": "Jaki był „Old Jaleel” według wypowiedzi?",
-        "options": ["Niecierpliwy", "Bardzo cierpliwy", "Zawsze zmęczony"],
-        "correct": 0,
-        "explanation": "Padają słowa „Old Jaleel was impatient”, czyli dawny Jaleel był niecierpliwy."
-      },
-      {
-        "type": "single_choice",
-        "question": "Uzupełnij zdanie: „What's built slowly over time has a better ___ of being indestructible.”",
-        "options": ["chance", "reason", "price"],
-        "correct": 0,
-        "explanation": "W nagraniu słychać „a better chance of being indestructible”, czyli większą szansę na bycie niezniszczalnym."
-      },
-      {
-        "type": "true_false",
-        "question": "Prawda czy fałsz: Według mówiącego to, co szybko rośnie, spada jeszcze szybciej.",
-        "options": ["Prawda", "Fałsz"],
-        "correct": 0,
-        "explanation": "Mówiący twierdzi, że „what goes up fast comes down faster”."
-      },
-      {
-        "type": "single_choice",
-        "question": "Co oznacza wyrażenie „built slowly over time”?",
-        "options": ["Budowane powoli, z czasem", "Zniszczone w jednej chwili", "Kupione za dużo pieniędzy"],
-        "correct": 0,
-        "explanation": "„Built slowly over time” znaczy zbudowane powoli, w długim czasie."
-      },
-      {
-        "type": "single_choice",
-        "question": "Co według mówiącego ma większe szanse, by być niezniszczalne?",
-        "options": ["To, co zbudowano szybko", "To, co zbudowano powoli", "To, co dostaje się za darmo"],
-        "correct": 1,
-        "explanation": "Mówi, że „what's built slowly over time” ma lepsze szanse, by być „indestructible”."
       }
     ]
   },
@@ -5328,63 +5207,6 @@
         "options": ["Z Grecji", "Z Włoch", "Z Hiszpanii"],
         "correct": 0,
         "explanation": "Mówiący mówi: „This is Strapatsada and it is Greek”, czyli grecka."
-      }
-    ]
-  },
-  {
-    "id": "clip-0117",
-    "videoId": "-sg3TzvEGAE",
-    "start": 81.78,
-    "end": 101.02,
-    "aspect": "16:9",
-    "level": "B2",
-    "title": "Filipino History! | Alexandra Eala vs Iga Swiatek | Match Highlights | Wimbledon 2026",
-    "channel": "Wimbledon",
-    "phrases": [
-      { "en": "You just knew", "pl": "od razu było wiadomo" },
-      { "en": "was going to pounce", "pl": "zaraz się rzuci, zaatakuje" },
-      { "en": "Too good.", "pl": "rewelacyjne, świetne" },
-      { "en": "Point.", "pl": "punkt (zdobyty)" }
-    ],
-    "subtitles": [
-      { "from": 81.78, "to": 84.24, "en": "You just knew she was going to pounce.", "pl": "Od razu było wiadomo, że się na to rzuci." },
-      { "from": 84.24, "to": 101.02, "en": "Point. Too good.", "pl": "Punkt. Rewelacja." }
-    ],
-    "quiz": [
-      {
-        "type": "single_choice",
-        "question": "Co komentator mówi o osobie, o której mowa w nagraniu?",
-        "options": ["Że na pewno się rzuci i zaatakuje", "Że na pewno się podda", "Że na pewno się spóźni"],
-        "correct": 0,
-        "explanation": "Usłyszeliśmy „You just knew she was going to pounce”, czyli było wiadomo, że się rzuci."
-      },
-      {
-        "type": "single_choice",
-        "question": "Uzupełnij zdanie: „You just knew she was going to ___.”",
-        "options": ["pounce", "pause", "practice"],
-        "correct": 0,
-        "explanation": "Pełne zdanie brzmi „You just knew she was going to pounce”."
-      },
-      {
-        "type": "true_false",
-        "question": "Prawda czy fałsz: Komentator mówi, że całość była „Too good.”",
-        "options": ["Prawda", "Fałsz"],
-        "correct": 0,
-        "explanation": "Na końcu pada „Too good.”, czyli pochwała tego, co się stało."
-      },
-      {
-        "type": "single_choice",
-        "question": "Co oznacza wyrażenie „pounce” w tym kontekście?",
-        "options": ["Nagle i szybko się na coś rzucić", "Cicho odejść", "Długo się zastanawiać"],
-        "correct": 0,
-        "explanation": "„Was going to pounce” oznacza, że ktoś miał się szybko i zdecydowanie rzucić na okazję."
-      },
-      {
-        "type": "true_false",
-        "question": "Prawda czy fałsz: Komentator jest zaskoczony i mówi, że nie spodziewał się takiego ruchu.",
-        "options": ["Prawda", "Fałsz"],
-        "correct": 1,
-        "explanation": "Mówi „You just knew”, czyli to było do przewidzenia, a nie zaskakujące."
       }
     ]
   },
