@@ -111,7 +111,7 @@ The look follows the "Enlinadotok v3" project file on claude.ai/design (project 
 
 GitHub Pages through `.github/workflows/deploy.yml`, triggered by a push to `main`. The workflow sets `BASE_PATH` to `/<repo name>/`, which `vite.config.ts` uses as `base`; locally it defaults to `/`.
 
-As of 2026-10-06 the repository exists only locally. Nothing has been pushed and Pages is not enabled. The planned repo is `radekdevjasinski/enlinado-rewatch`.
+The repository is `radekdevjasinski/enlinado-rewatch`. Pages is enabled with GitHub Actions as the source, and the site is at https://radekdevjasinski.github.io/enlinado-rewatch/.
 
 ## Git
 
