@@ -2,7 +2,7 @@ import { useState } from 'react';
 import type { ClipFeedback } from '../types/ClipFeedback';
 import type { ClipVote } from '../types/ClipVote';
 
-const STORAGE_KEY = 'enlinadotok.clipFeedback';
+const STORAGE_KEY = 'enlinado-rewatch.clipFeedback';
 
 function readStoredFeedback(): Record<string, ClipFeedback> {
   const storedValue = localStorage.getItem(STORAGE_KEY);

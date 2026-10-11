@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react';
 
-const STORAGE_KEY = 'enlinadotok.correctAnswers';
+const STORAGE_KEY = 'enlinado-rewatch.correctAnswers';
 
 function readStoredAnswerKeys(): string[] {
   const storedValue = localStorage.getItem(STORAGE_KEY);

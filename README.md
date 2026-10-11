@@ -1,4 +1,4 @@
-# Enlinadotok
+# Enlinado Rewatch
 
 Prototype of an app for learning English: a vertical feed of short YouTube fragments with subtitles and a quiz after each clip. Vite, React and TypeScript, no backend.
 
@@ -15,7 +15,7 @@ npm run dev
 
 ## Clips
 
-All clips are in `src/data/clips.json`. Most come from the generator in `../enlinadotokClipGenerator`, whose `publish` command appends to this file. The full description of a clip is in `../enlinadotokClipGenerator/CLAUDE.md`, and the types in `src/types/` are the final word.
+All clips are in `src/data/clips.json`. Most come from the generator in `../enlinado-rewatch-clip-generator`, whose `publish` command appends to this file. The full description of a clip is in `../enlinado-rewatch-clip-generator/CLAUDE.md`, and the types in `src/types/` are the final word.
 
 After the file changes, run `npm run build`, watch the new clips with `npm run dev` and commit `clips.json`.
 

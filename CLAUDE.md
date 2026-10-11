@@ -1,4 +1,4 @@
-# Enlinadotok viewer
+# Enlinado Rewatch viewer
 
 Prototype web app for learning English from short YouTube fragments: a vertical feed of clips, each with synced subtitles, a Polish translation and a short quiz. It exists to demonstrate the idea, so a working flow matters more than architecture.
 
@@ -50,10 +50,10 @@ How the pieces fit:
 - The channel name is a badge (`.channel-badge` in `SourceMeta`) that links to the original at `start`. There is no separate "Oryginał na YouTube" link (Radek's decision, 2026-10-11).
 - Below 1024px the open quiz hides the subtitle box and `.fragment-controls` (`.player-area--quiz`), because the sheet may not cover the player and would otherwise be left with almost no height in a short window.
 - The header shows the same items at every width: logo, `StreakLabel`, `ScoreBadge` and `ProfileAvatar`.
-- `ClipFeedbackBar` (like, dislike, report) sits in the source row of the active card. `useClipFeedback` keeps the vote and the reported flag in `localStorage` under `enlinadotok.clipFeedback`, keyed by clip id. There are no counters and nothing is sent anywhere: `ReportDialog` only marks the clip as reported and `ClipReport` shows a thank-you toast. The dialog and the toast render inside `.clip-side`, so they cover the area below the player on phones and the right-hand card on desktop, never the player.
+- `ClipFeedbackBar` (like, dislike, report) sits in the source row of the active card. `useClipFeedback` keeps the vote and the reported flag in `localStorage` under `enlinado-rewatch.clipFeedback`, keyed by clip id. There are no counters and nothing is sent anywhere: `ReportDialog` only marks the clip as reported and `ClipReport` shows a thank-you toast. The dialog and the toast render inside `.clip-side`, so they cover the area below the player on phones and the right-hand card on desktop, never the player.
 - `src/profile/placeholderProfile.ts` feeds the parts of the design that do not work yet: `StreakLabel` and `ProfileAvatar` (header) and the streak in `QuizSummary`. The values are neutral placeholders, not real data.
 - `ClipStudy` (transcript, quiz button) and `QuizSheet` (quiz and summary) sit below the player. On phones the sheet slides up from the bottom; from 1024px they share the right-hand grid column.
-- `useScore` keeps the set of correctly answered questions in `localStorage` under `enlinadotok.correctAnswers`, keyed as `<clipId>:<questionIndex>`.
+- `useScore` keeps the set of correctly answered questions in `localStorage` under `enlinado-rewatch.correctAnswers`, keyed as `<clipId>:<questionIndex>`.
 
 ## Hard constraints
 
@@ -79,7 +79,7 @@ Everything lives in `src/data/clips.json`. The schema is `src/types/Clip.ts`; th
 - Each clip has 5 quiz questions. Every question has a `type`: `single_choice` or `true_false`.
 - A quiz attempt draws 3 random questions (`QUESTIONS_PER_ATTEMPT` in `src/quiz/drawQuizQuestions.ts`) and shuffles the options of `single_choice` questions. `true_false` keeps its order. The draw happens once per `QuizPanel` mount, so "Obejrzyj ponownie" redraws.
 - The score key uses the question's index in `clips.json`, not its position in the attempt, so reordering questions in the file changes which ones count as already answered.
-- `../enlinadotokClipGenerator/CLAUDE.md` (a sibling folder, outside this repository) is the spec for what a generated clip must contain. Keep it in sync with `src/types/` when the schema changes.
+- `../enlinado-rewatch-clip-generator/CLAUDE.md` (a sibling folder, outside this repository) is the spec for what a generated clip must contain. Keep it in sync with `src/types/` when the schema changes.
 
 The current content was derived from an older generator project at `C:\Users\radek.dev\Documents\enlinadotok generator`: fragment times and questions from `processed_videos/*_quiz.txt`, line timings from the Whisper word timestamps in `raw_videos/*_words.txt`. The `.mp4` files there must never be used by this app.
 
@@ -111,7 +111,7 @@ The look follows the "Enlinadotok v3" project file on claude.ai/design (project 
 
 GitHub Pages through `.github/workflows/deploy.yml`, triggered by a push to `main`. The workflow sets `BASE_PATH` to `/<repo name>/`, which `vite.config.ts` uses as `base`; locally it defaults to `/`.
 
-As of 2026-10-06 the repository exists only locally. Nothing has been pushed and Pages is not enabled. The planned repo is `radekdevjasinski/enlinadotok-viewer`.
+As of 2026-10-06 the repository exists only locally. Nothing has been pushed and Pages is not enabled. The planned repo is `radekdevjasinski/enlinado-rewatch`.
 
 ## Git
 
